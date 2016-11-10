@@ -1,0 +1,20 @@
+SearchCluster:
+  Type: AWS::Elasticsearch::Domain
+  Properties:
+    AccessPolicies:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Principal:
+          AWS: "*"
+        Action: es:*
+        Resource: arn:aws:es:*:*:*
+    DomainName: offcourse-${opt:stage}
+    ElasticsearchVersion: 2.3
+    ElasticsearchClusterConfig:
+      InstanceCount: '1'
+      InstanceType: t2.micro.elasticsearch
+    EBSOptions:
+      EBSEnabled: 'true'
+      VolumeSize: '10'
+      VolumeType: gp2

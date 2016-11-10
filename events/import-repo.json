@@ -1,0 +1,53 @@
+{
+  "path": {},
+  "principalId": "offcourse|yeehaa",
+  "identity": {
+    "caller": "",
+    "sourceIp": "213.119.26.78",
+    "cognitoIdentityId": "",
+    "apiKey": "",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36",
+    "cognitoAuthenticationProvider": "",
+    "accessKey": "",
+    "accountId": "",
+    "user": "",
+    "cognitoAuthenticationType": "",
+    "cognitoIdentityPoolId": "",
+    "userArn": ""
+  },
+  "stage": "dev",
+  "method": "POST",
+  "headers": {
+    "X-Amz-Cf-Id": "lwKTGh4m7QhPiog7LTVjBU1r9GABRh0Nih2Gpeta5JoWGxkS9fQigQ==",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Forwarded-Proto": "https",
+    "X-Forwarded-Proto": "https",
+    "X-Forwarded-Port": "443",
+    "Origin": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "X-Forwarded-For": "213.119.26.78, 216.137.58.18",
+    "CloudFront-Viewer-Country": "BE",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "no-cache",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "Via": "1.1 bcde18fe57c01210eccee8a7d0a23a85.cloudfront.net (CloudFront)",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "Host": "w41t8s8i54.execute-api.us-east-1.amazonaws.com",
+    "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3llZWhhYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ2l0aHVifDE3ODAzNTgiLCJhdWQiOiJaMUowQ3lNelpmSWJPZkJTVmFNV0pha29JcnhtNFRmcyIsImV4cCI6MTQ3NzEyMTgwOSwiaWF0IjoxNDc3MDg1ODA5LCJhbXIiOltdfQ.oWNxP5gBR26sXWoUFvNkWDUFWYJgPXB5U6NNVQAXt4Q",
+    "Content-Type": "application/json",
+    "Postman-Token": "51fc4747-3075-4f74-2c1b-55e670d2ed70",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.59 Safari/537.36"
+  },
+  "stageVariables": {},
+  "query": {},
+  "body": {
+      "action-type": "import",
+      "payload": {
+          "name":  "basicwebdev_3",
+          "owner": "offcourse",
+          "sha":   "91cf75eaddfc1b15fb38cfc16d45f173eeb4877c"
+      }
+  }
+}

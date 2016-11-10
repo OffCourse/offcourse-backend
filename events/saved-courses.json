@@ -1,0 +1,89 @@
+{
+    "Records": [
+        {
+            "eventID": "91180e650f8ecb2497bbc04bd6f6d055",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1478729700,
+                "Keys": {
+                    "course-id": {
+                        "S": "offcourse::napoleon::123"
+                    },
+                    "revision": {
+                        "N": "1"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "napoleon"
+                    },
+                    "course-id": {
+                        "S": "offcourse::napoleon::123"
+                    },
+                    "goal": {
+                        "S": "Do A Lot"
+                    },
+                    "checkpoints": {
+                        "L": [
+                            {
+                                "M": {
+                                    "task": {
+                                        "S": "do something"
+                                    },
+                                    "resource-url": {
+                                        "S": "http://offcourse.io"
+                                    },
+                                    "checkpoint-id": {
+                                        "N": "0"
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "task": {
+                                        "S": "do something else"
+                                    },
+                                    "resource-url": {
+                                        "S": "http://unacademic.io"
+                                    },
+                                    "checkpoint-id": {
+                                        "N": "1"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "base-id": {
+                        "S": "offcourse::napoleon::123"
+                    },
+                    "repository": {
+                        "S": "offcourse"
+                    },
+                    "version": {
+                        "L": [
+                            {
+                                "N": "0"
+                            },
+                            {
+                                "N": "0"
+                            },
+                            {
+                                "N": "1"
+                            }
+                        ]
+                    },
+                    "revision": {
+                        "N": "1"
+                    }
+                },
+                "SequenceNumber": "38224100000000010425938974",
+                "SizeBytes": 337,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/courses-dev/stream/2016-11-09T21:48:50.668"
+        }
+    ]
+}

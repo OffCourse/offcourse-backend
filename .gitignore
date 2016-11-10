@@ -1,0 +1,7 @@
+**/target/
+**/.nrepl-port
+/out
+/.serverless
+**/node_modules
+.env
+envvars.yml

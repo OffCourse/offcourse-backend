@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "604",
+                "sequenceNumber": "49567297482529528854260988641983960548531571668455260162",
+                "data": "W3siZGVzY3JpcHRpb24iOiJVbmFjYWRlbWljIG9wZW4gc291cmNpbmcgZWR1Y2F0aW9uIiwicHJvdmlkZXJfZGlzcGxheSI6InVuYWNhZGVtaWMuaW8iLCJhcHBfbGlua3MiOltdLCJvZmZzZXQiOm51bGwsImNvbnRlbnQiOm51bGwsImltYWdlcyI6W10sImVudGl0aWVzIjpbeyJjb3VudCI6MiwibmFtZSI6IlVuaXZlcnNpdHkgb2YgQW1zdGVyZGFtIn0seyJjb3VudCI6MSwibmFtZSI6IkJBIn0seyJjb3VudCI6MSwibmFtZSI6IkRpZ2l0YWwgSHVtYW5pdGllcyJ9LHsiY291bnQiOjEsIm5hbWUiOiJIdW1hbml0aWVzIENvZGluZyB0aGUgSHVtYW5pdGllcyJ9LHsiY291bnQiOjEsIm5hbWUiOiJCb2NvdXAifSx7ImNvdW50IjoxLCJuYW1lIjoiQ29kaW5nIHRoZSBIdW1hbml0aWVzIn1dLCJ0eXBlIjoiaHRtbCIsInJlbGF0ZWQiOltdLCJrZXl3b3JkcyI6W3sic2NvcmUiOjQzLCJuYW1lIjoibGVhcm5lciJ9LHsic2NvcmUiOjQwLCJuYW1lIjoidW5hY2FkZW1pYyJ9LHsic2NvcmUiOjMyLCJuYW1lIjoiZWR1Y2F0aW9uYWwifSx7InNjb3JlIjozMCwibmFtZSI6Im9mZmNvdXJzZSJ9LHsic2NvcmUiOjMwLCJuYW1lIjoicGllcCJ9LHsic2NvcmUiOjIwLCJuYW1lIjoiaHVtYW5pdGllcyJ9LHsic2NvcmUiOjIwLCJuYW1lIjoiY29kaW5nIn0seyJzY29yZSI6MTcsIm5hbWUiOiJzb3VyY2UifSx7InNjb3JlIjoxNSwibmFtZSI6InRlYWNoZXJzIn0seyJzY29yZSI6MTQsIm5hbWUiOiJsZWFybmluZyJ9XSwidGl0bGUiOiJVbmFjYWRlbWljIiwicHJvdmlkZXJfbmFtZSI6IlVuYWNhZGVtaWMiLCJsYW5ndWFnZSI6IkVuZ2xpc2giLCJjYWNoZV9hZ2UiOjgxNjUyLCJ1cmwiOiJodHRwOi8vdW5hY2FkZW1pYy5pby8iLCJsZWFkIjpudWxsLCJmYXZpY29uX2NvbG9ycyI6W3siY29sb3IiOlsxMDQsMTk3LDE4MF0sIndlaWdodCI6MC4wMDAyNDQxNDA2MDAwMDAwMDAwMn0seyJjb2xvciI6WzI1MiwyNTIsMjUyXSwid2VpZ2h0IjowLjAwMDI0NDE0MDYwMDAwMDAwMDAyfV0sImVtYmVkcyI6W10sImZhdmljb25fdXJsIjoiaHR0cDovL3VuYWNhZGVtaWMuaW8vZmF2aWNvbi5pY28iLCJzYWZlIjp0cnVlLCJvcmlnaW5hbF91cmwiOiJodHRwOi8vdW5hY2FkZW1pYy5pbyIsImF1dGhvcnMiOltdLCJwcm92aWRlcl91cmwiOiJodHRwOi8vdW5hY2FkZW1pYy5pbyIsIm1lZGlhIjp7fSwicHVibGlzaGVkIjpudWxsfV0=",
+                "approximateArrivalTimestamp": 1478202733.799
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567297482529528854260988641983960548531571668455260162",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/raw-resources-dev"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+  "body": {
+    "action-type": "sign-in"
+  },
+  "method": "POST",
+  "principalId": "github|1780358",
+  "stage": "dev",
+  "headers": {
+    "Accept": "application/transit+json, application/transit+transit, application/json, text/plain, text/html, */*",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Authorization": "Bearer",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "NL",
+    "Content-Type": "application/json",
+    "Host": "ohtxqsb2a4.execute-api.us-east-1.amazonaws.com",
+    "Origin": "http://localhost:3000",
+    "Referer": "http://localhost:3000/users/charlotte/courses/use-the-command-line/checkpoints/learn-basic-commands",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.46 Safari/537.36",
+    "Via": "1.1 8e55f0de4d538f549650ba46e729188c.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "6W1Ex7bBLtZ2DdwSAIh-rKL2AcUb0bC5110j_Sn0DRdPCYYOiDnspA==",
+    "X-Forwarded-For": "188.205.6.134, 54.240.156.65",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "query": {},
+  "path": {},
+  "identity": {
+    "cognitoIdentityPoolId": "",
+    "accountId": "",
+    "cognitoIdentityId": "",
+    "caller": "",
+    "apiKey": "",
+    "sourceIp": "188.205.6.134",
+    "cognitoAuthenticationType": "",
+    "cognitoAuthenticationProvider": "",
+    "userArn": "",
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.46 Safari/537.36",
+    "user": ""
+  },
+  "stageVariables": {}
+}

@@ -1,0 +1,29 @@
+ResourcesBucket:
+  Type: "AWS::S3::Bucket"
+  Properties: 
+    BucketName: ${self:service}-resources-${opt:stage} 
+ResourcesBucketName:
+  Description: Name of the Resources Bucket
+  Value:
+    Ref: ResourcesBucket
+ResourcesBucketArn:
+  Description: ARN of the Resources Bucket
+  Value:
+    Fn::Join: [":", ["arn","aws","s3","", "" ,{"Ref" : "ResourcesBucket"}]]
+
+AssetsBucket:
+  Type: "AWS::S3::Bucket"
+  Properties: 
+    BucketName: ${self:service}-assets-${opt:stage} 
+    WebsiteConfiguration:
+      ErrorDocument: "index.html"
+      IndexDocument: "index.html"
+
+AssetsBucketName:
+  Description: Name of the Assets Bucket
+  Value:
+    Ref: AssetsBucket
+AssetsBucketArn:
+  Description: ARN of the Assets Bucket
+  Value:
+    Fn::Join: [":", ["arn","aws","s3","", "" ,{"Ref" : "AssetsBucket"}]]

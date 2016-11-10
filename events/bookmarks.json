@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "866",
+                "sequenceNumber": "49567240311625514054802524611473998373766393620810694658",
+                "data": "W3sicmVzb3VyY2UtdXJsIjoiaHR0cDovL29mZmNvdXJzZS5pbyIsImN1cmF0b3IiOiJuYXBvbGVvbiIsInRpbWVzdGFtcCI6MTQ3ODA0MzkwMDY4NSwib2ZmY291cnNlLWlkIjoib2ZmY291cnNlOjpuYXBvbGVvbjo6MTIzOjoxOjowIn0seyJyZXNvdXJjZS11cmwiOiJodHRwOi8vdW5hY2FkZW1pYy5pbyIsImN1cmF0b3IiOiJuYXBvbGVvbiIsInRpbWVzdGFtcCI6MTQ3ODA0MzkwMDY4Niwib2ZmY291cnNlLWlkIjoib2ZmY291cnNlOjpuYXBvbGVvbjo6MTIzOjoxOjoxIn1d",
+                "approximateArrivalTimestamp": 1478043900.745
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567240311625514054802524611473998373766393620810694658",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/bookmarks-dev"
+        }
+    ]
+}

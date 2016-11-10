@@ -1,0 +1,96 @@
+{
+    "Records": [
+        {
+            "eventID": "27f765f58bd4643a0dc06e9d3c420184",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1478731920,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://unacademic.io"
+                    }
+                },
+                "NewImage": {
+                    "bookmark-url": {
+                        "S": "http://unacademic.io"
+                    },
+                    "entities": {
+                        "L": [
+                            {
+                                "S": "University of Amsterdam"
+                            },
+                            {
+                                "S": "BA"
+                            },
+                            {
+                                "S": "Digital Humanities"
+                            },
+                            {
+                                "S": "Humanities Coding the Humanities"
+                            },
+                            {
+                                "S": "Bocoup"
+                            },
+                            {
+                                "S": "Coding the Humanities"
+                            }
+                        ]
+                    },
+                    "resource-url": {
+                        "S": "http://unacademic.io"
+                    },
+                    "description": {
+                        "S": "Unacademic open sourcing education"
+                    },
+                    "language": {
+                        "S": "English"
+                    },
+                    "resource-type": {
+                        "S": "html"
+                    },
+                    "tags": {
+                        "L": [
+                            {
+                                "S": "learner"
+                            },
+                            {
+                                "S": "unacademic"
+                            },
+                            {
+                                "S": "educational"
+                            },
+                            {
+                                "S": "offcourse"
+                            },
+                            {
+                                "S": "piep"
+                            },
+                            {
+                                "S": "humanities"
+                            },
+                            {
+                                "S": "coding"
+                            },
+                            {
+                                "S": "source"
+                            },
+                            {
+                                "S": "teachers"
+                            },
+                            {
+                                "S": "learning"
+                            }
+                        ]
+                    }
+                },
+                "SequenceNumber": "38082800000000002114722953",
+                "SizeBytes": 388,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/resources-dev/stream/2016-11-01T20:58:43.405"
+        }
+    ]
+}

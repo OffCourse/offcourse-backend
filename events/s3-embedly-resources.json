@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-east-1",
+            "eventTime": "2016-11-02T23:48:45.508Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_350_20161102194355491"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "54.172.229.241"
+            },
+            "responseElements": {
+                "x-amz-request-id": "90AC43FAED3043C2",
+                "x-amz-id-2": "oxEnP5nGIE/H0hqWzQRGFqbdHbO1llKrowEoPKrfFwMSicLQP4cztWz5U1uoZ8oEGnFeFLKnUQs="
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "222e2ab5-3066-4494-b4ce-7b1fb7d54fa5",
+                "bucket": {
+                    "name": "offcourse-resources-dev",
+                    "ownerIdentity": {
+                        "principalId": "A2G8O26WW05BHB"
+                    },
+                    "arn": "arn:aws:s3:::offcourse-resources-dev"
+                },
+                "object": {
+                    "key": "aHR0cDovL3VuYWNhZGVtaWMuaW8v/embedly",
+                    "size": 1191,
+                    "eTag": "312eef513ee8a4a0f885f631bf304ba1",
+                    "sequencer": "00581A7B5D73431806"
+                }
+            }
+        }
+    ]
+}

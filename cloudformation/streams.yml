@@ -1,0 +1,71 @@
+IdentitiesStream:
+  Type: AWS::Kinesis::Stream
+  Properties:
+    Name: identities-${opt:stage}
+    ShardCount: 1
+
+CoursesStream:
+  Type: AWS::Kinesis::Stream
+  Properties:
+    Name: courses-${opt:stage}
+    ShardCount: 1
+
+ProfilesStream:
+  Type: AWS::Kinesis::Stream
+  Properties:
+    Name: profiles-${opt:stage}
+    ShardCount: 1
+
+PortraitsStream:
+  Type: AWS::Kinesis::Stream
+  Properties:
+    Name: portraits-${opt:stage}
+    ShardCount: 1
+
+BookmarksStream:
+  Type: AWS::Kinesis::Stream
+  Properties:
+    Name: bookmarks-${opt:stage}
+    ShardCount: 1
+
+ResourcesStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: IdentitiesStream
+  Properties:
+    Name: resources-${opt:stage}
+    ShardCount: 1
+
+RawUsersStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: CoursesStream
+  Properties:
+    Name: raw-users-${opt:stage}
+    ShardCount: 1
+
+RawPortraitsStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: ProfilesStream
+  Properties:
+    Name: raw-portraits-${opt:stage}
+    ShardCount: 1
+
+RawResourcesStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: PortraitsStream
+  Properties:
+    Name: raw-resources-${opt:stage}
+    ShardCount: 1
+
+RawCoursesStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: BookmarksStream
+  Properties:
+    Name: raw-courses-${opt:stage}
+    ShardCount: 1
+
+GithubReposStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: ResourcesStream
+  Properties:
+    Name: github-repos-${opt:stage}
+    ShardCount: 1

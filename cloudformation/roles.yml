@@ -1,0 +1,36 @@
+AccessBucketsRole:
+  Type: "AWS::IAM::Role"
+  Properties: 
+    AssumeRolePolicyDocument: 
+      Version: "2012-10-17"
+      Statement: 
+        - Effect: Allow
+          Principal: 
+            Service: 
+              - firehose.amazonaws.com
+          Action: 
+            - sts:AssumeRole
+          Condition:
+            StringEquals:
+              sts:ExternalId:
+                Ref: AWS::AccountId
+AccessBucketsRoleArn:
+  Description: ARN of the Access Bucket Role
+  Value:
+    Fn::GetAtt:
+      - AccessBucketsRole
+      - Arn
+
+ViewAssetsPolicy: 
+  Type: "AWS::S3::BucketPolicy"
+  Properties: 
+    Bucket:
+      Ref: "AssetsBucket"
+    PolicyDocument: 
+      Statement: 
+        - Action: 
+            - "s3:GetObject"
+          Effect: "Allow"
+          Resource:
+            Fn::Join: ["", ["arn:aws:s3:::", { "Ref" : "AssetsBucket" }, "/*" ]]
+          Principal: "*"

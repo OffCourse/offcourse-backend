@@ -1,0 +1,36 @@
+{
+  "Records": [
+    {
+      "kinesis": {
+        "kinesisSchemaVersion": "1.0",
+        "partitionKey": "80",
+        "sequenceNumber": "49567174375636606424867937929972367121789877626882490370",
+        "data": "eyJ1c2VyLW5hbWUiOiJyMmoyIiwiYXV0aC1wcm9maWxlIjp7Im5hbWUiOiJSb2JlcnQtSmFuIEtvcnRlc2NoaWVsIiwicGljdHVyZSI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS83NjY4NTA2P3Y9MyIsImNvbXBhbnkiOiJPZmZjb3Vyc2UiLCJ3ZWJzaXRlIjoiaHR0cDovL29mZmNvdXJzZS5pbyIsImxvY2F0aW9uIjoiTmV0aGVybGFuZHMiLCJlbWFpbHMiOlt7ImVtYWlsIjoicmprb3J0ZXNjaGllbEBnbWFpbC5jb20iLCJwcmltYXJ5Ijp0cnVlLCJ2ZXJpZmllZCI6dHJ1ZX1dLCJpZGVudGl0aWVzIjpbeyJwcm92aWRlciI6ImdpdGh1YiIsInVzZXJfaWQiOjc2Njg1MDYsImNvbm5lY3Rpb24iOiJnaXRodWIiLCJpc1NvY2lhbCI6dHJ1ZX1dfX0=",
+        "approximateArrivalTimestamp": 1477858451.509
+      },
+      "eventSource": "aws:kinesis",
+      "eventVersion": "1.0",
+      "eventID": "shardId-000000000000:49567174375636606424867937929972367121789877626882490370",
+      "eventName": "aws:kinesis:record",
+      "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-backend-dev-IamRoleLambdaExecution-1WOX9QS2VRQNM",
+      "awsRegion": "us-east-1",
+      "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/raw-users-dev"
+    },
+    {
+      "kinesis": {
+        "kinesisSchemaVersion": "1.0",
+        "partitionKey": "152",
+        "sequenceNumber": "49567174375636606424867937930106557887767157334209462274",
+        "data": "eyJ1c2VyLW5hbWUiOiJ5ZWVoYWEiLCJhdXRoLXByb2ZpbGUiOnsibmFtZSI6IkphbiBIZWluIEhvb2dzdGFkIiwicGljdHVyZSI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xNzgwMzU4P3Y9MyIsImNvbXBhbnkiOiJPZmZjb3Vyc2UiLCJ3ZWJzaXRlIjoiaHR0cDovL29mZmNvdXJzZS5pbyIsImxvY2F0aW9uIjoiTmV0aGVybGFuZHMiLCJlbWFpbHMiOlt7ImVtYWlsIjoieWVlaGFhMTIzQG1hYy5jb20iLCJwcmltYXJ5IjpmYWxzZSwidmVyaWZpZWQiOnRydWV9LHsiZW1haWwiOiJ5ZWVoYWFAb2ZmY291cnNlLmlvIiwicHJpbWFyeSI6dHJ1ZSwidmVyaWZpZWQiOnRydWV9XSwiaWRlbnRpdGllcyI6W3sidXNlcl9pZCI6MTc4MDM1OCwicHJvdmlkZXIiOiJnaXRodWIiLCJjb25uZWN0aW9uIjoiZ2l0aHViIiwiaXNTb2NpYWwiOnRydWV9XX19",
+        "approximateArrivalTimestamp": 1477859264.367
+      },
+      "eventSource": "aws:kinesis",
+      "eventVersion": "1.0",
+      "eventID": "shardId-000000000000:49567174375636606424867937930106557887767157334209462274",
+      "eventName": "aws:kinesis:record",
+      "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-backend-dev-IamRoleLambdaExecution-1WOX9QS2VRQNM",
+      "awsRegion": "us-east-1",
+      "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/raw-users-dev"
+    }
+  ]
+}

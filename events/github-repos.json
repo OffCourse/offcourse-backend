@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "937",
+                "sequenceNumber": "49567514724257647551590974498222241166010951008885145602",
+                "data": "eyJuYW1lIjoiYmFzaWN3ZWJkZXZfMyIsIm93bmVyIjoib2ZmY291cnNlIiwic2hhIjoiOTFjZjc1ZWFkZGZjMWIxNWZiMzhjZmMxNmQ0NWYxNzNlZWI0ODc3YyIsInVzZXItbmFtZSI6InllZWhhYSJ9",
+                "approximateArrivalTimestamp": 1478817848.152
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567514724257647551590974498222241166010951008885145602",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/github-repos-dev"
+        }
+    ]
+}

@@ -1,0 +1,142 @@
+{
+    "Records": [
+        {
+            "eventID": "5f02aff9e401992157e961b6a3943d1b",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1478806080,
+                "Keys": {
+                    "user-name": {
+                        "S": "yeehaa"
+                    }
+                },
+                "OldImage": {
+                    "emails": {
+                        "L": [
+                            {
+                                "M": {
+                                    "verified": {
+                                        "BOOL": true
+                                    },
+                                    "email": {
+                                        "S": "yeehaa123@mac.com"
+                                    },
+                                    "primary": {
+                                        "BOOL": false
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "verified": {
+                                        "BOOL": true
+                                    },
+                                    "email": {
+                                        "S": "yeehaa@offcourse.io"
+                                    },
+                                    "primary": {
+                                        "BOOL": true
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "website": {
+                        "S": "http://offcourse.io"
+                    },
+                    "user-name": {
+                        "S": "yeehaa"
+                    },
+                    "name": {
+                        "S": "Jan Hein Hoogstad"
+                    },
+                    "company": {
+                        "S": "Offcourse"
+                    },
+                    "location": {
+                        "S": "Netherlands"
+                    },
+                    "revision": {
+                        "N": "1"
+                    }
+                },
+                "SequenceNumber": "41885000000000010863364991",
+                "SizeBytes": 225,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/profiles-dev/stream/2016-11-09T21:48:51.163"
+        },
+        {
+            "eventID": "5dcecfc5960d796780c94e5e19603c2c",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1478806140,
+                "Keys": {
+                    "user-name": {
+                        "S": "yeehaa"
+                    }
+                },
+                "NewImage": {
+                    "emails": {
+                        "L": [
+                            {
+                                "M": {
+                                    "verified": {
+                                        "BOOL": true
+                                    },
+                                    "email": {
+                                        "S": "yeehaa123@mac.com"
+                                    },
+                                    "primary": {
+                                        "BOOL": false
+                                    }
+                                }
+                            },
+                            {
+                                "M": {
+                                    "verified": {
+                                        "BOOL": true
+                                    },
+                                    "email": {
+                                        "S": "yeehaa@offcourse.io"
+                                    },
+                                    "primary": {
+                                        "BOOL": true
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "website": {
+                        "S": "http://offcourse.io"
+                    },
+                    "user-name": {
+                        "S": "yeehaa"
+                    },
+                    "name": {
+                        "S": "Jan Hein Hoogstad"
+                    },
+                    "company": {
+                        "S": "Offcourse"
+                    },
+                    "location": {
+                        "S": "Netherlands"
+                    },
+                    "revision": {
+                        "N": "1"
+                    }
+                },
+                "SequenceNumber": "41885100000000010863428531",
+                "SizeBytes": 225,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/profiles-dev/stream/2016-11-09T21:48:51.163"
+        }
+    ]
+}

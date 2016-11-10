@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "632",
+                "sequenceNumber": "49566999975245667759159528870343621105404073934063665154",
+                "data": "W3siYXV0aC1pZCI6ImdpdGh1Ynw3NjY4NTA2IiwidXNlci1uYW1lIjoicjJqMiJ9LHsiYXV0aC1pZCI6ImdpdGh1YnwxNzgwMzU4IiwidXNlci1uYW1lIjoieWVlaGFhIn1d",
+                "approximateArrivalTimestamp": 1477862200.577
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49566999975245667759159528870343621105404073934063665154",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-backend-dev-IamRoleLambdaExecution-1WOX9QS2VRQNM",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/identities-dev"
+        }
+    ]
+}

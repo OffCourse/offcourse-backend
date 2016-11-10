@@ -1,0 +1,38 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "us-east-1",
+            "eventTime": "2016-11-07T12:26:54.879Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_910_20161107122208781"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "54.242.28.163"
+            },
+            "responseElements": {
+                "x-amz-request-id": "BB5B046D9D80DB69",
+                "x-amz-id-2": "av4RFWHmFAKBD+kX/YNWmSuXCJ+2KJ/MaVp8gglJpY8iEGio2ALInc6ORKA0WEPtbiBPzx4XkrY="
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "71fc99c6-5602-42a9-b3ff-23c5feb7533a",
+                "bucket": {
+                    "name": "offcourse-courses-dev",
+                    "ownerIdentity": {
+                        "principalId": "A2G8O26WW05BHB"
+                    },
+                    "arn": "arn:aws:s3:::offcourse-courses-dev"
+                },
+                "object": {
+                    "key": "1478521614764",
+                    "size": 346,
+                    "eTag": "2e4cb71102200f377d1eeb4f450b8045",
+                    "sequencer": "005820730ECDEFD3F1"
+                }
+            }
+        }
+    ]
+}

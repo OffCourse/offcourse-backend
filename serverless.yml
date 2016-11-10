@@ -1,0 +1,132 @@
+service: offcourse
+provider:
+  name: aws
+  cfLogs: true
+  runtime: nodejs4.3
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        -  dynamodb:GetItem
+        -  dynamodb:BatchGetItem
+        -  dynamodb:PutItem
+        -  dynamodb:Scan
+        -  s3:PutObject
+        -  s3:GetObject
+        -  kinesis:GetRecords
+        -  kinesis:GetShardIterator
+        -  kinesis:PutRecords
+        -  kinesis:DescribeStream
+        -  kinesis:ListStreams
+      Resource: "*" 
+
+custom:
+  kinesisBase: arn:aws:kinesis:us-east-1:774182433398:stream
+  dynamodbBase: arn:aws:dynamodb:us-east-1:774182433398:table
+  writeEnvVars: ${file(./envvars.yml):EnvVars}
+
+plugins:
+  - serverless-plugin-write-env-vars
+
+functions:
+  command:
+    handler: functions/index.command
+    events:
+      - http:
+          path: command
+          method: post
+          cors: true
+          integration: lambda
+          authorizer: authorize
+  authorize:
+    handler: functions/index.authorize
+  retrieve:
+    handler: functions/index.retrieve
+    events:
+      - s3:
+          bucket: ${self:service}-resources-${opt:stage}
+          event: s3:ObjectCreated:*
+      - s3:
+          bucket: ${self:service}-raw-users-${opt:stage}
+          event: s3:ObjectCreated:*
+      - s3:
+          bucket: ${self:service}-courses-${opt:stage}
+          event: s3:ObjectCreated:*
+  transform:
+    handler: functions/index.transform
+    events:
+      - stream: 
+          arn: ${self:custom.kinesisBase}/raw-resources-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/raw-users-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/courses-${opt:stage}
+          startingPosition: LATEST
+  save:
+    handler: functions/index.save
+    events:
+      - stream: 
+          arn: ${self:custom.kinesisBase}/profiles-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/identities-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/courses-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/resources-${opt:stage}
+          startingPosition: LATEST
+  download:
+    handler: functions/index.download
+    events:
+      - stream: 
+          arn: ${self:custom.kinesisBase}/raw-portraits-${opt:stage}
+          startingPosition: LATEST
+      - stream: 
+          arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}
+          startingPosition: LATEST
+      - stream:
+          arn: ${self:custom.kinesisBase}/github-repos-${opt:stage}
+          startingPosition: LATEST
+  index:
+    handler: functions/index.index
+    events:
+      - stream:
+          arn: ${self:custom.dynamodbBase}/resources-${opt:stage}/stream/2016-11-01T20:58:43.405
+      - stream:
+          arn: ${self:custom.dynamodbBase}/courses-${opt:stage}/stream/2016-11-09T21:48:50.668
+      - stream:
+          arn: ${self:custom.dynamodbBase}/profiles-${opt:stage}/stream/2016-11-09T21:48:51.163
+
+resources:
+  Resources:
+    AccessBucketsRole:    ${file(./cloudformation/roles.yml):AccessBucketsRole}  
+    ViewAssetsPolicy:     ${file(./cloudformation/roles.yml):ViewAssetsPolicy}  
+
+    RawUsersStream:       ${file(./cloudformation/streams.yml):RawUsersStream}
+    RawPortraitsStream:   ${file(./cloudformation/streams.yml):RawPortraitsStream}
+    RawResourcesStream:   ${file(./cloudformation/streams.yml):RawResourcesStream}
+    RawCoursesStream:     ${file(./cloudformation/streams.yml):RawCoursesStream}
+
+    PortraitsStream:      ${file(./cloudformation/streams.yml):PortraitsStream}
+    ProfilesStream:       ${file(./cloudformation/streams.yml):ProfilesStream}
+    IdentitiesStream:     ${file(./cloudformation/streams.yml):IdentitiesStream}
+    CoursesStream:        ${file(./cloudformation/streams.yml):CoursesStream}
+    BookmarksStream:      ${file(./cloudformation/streams.yml):BookmarksStream}
+    ResourcesStream:      ${file(./cloudformation/streams.yml):ResourcesStream}
+    GithubReposStream:    ${file(./cloudformation/streams.yml):GithubReposStream}
+    
+    ResourcesTable:       ${file(./cloudformation/tables.yml):ResourcesTable}
+    ProfilesTable:        ${file(./cloudformation/tables.yml):ProfilesTable}
+    CoursesTable:         ${file(./cloudformation/tables.yml):CoursesTable}
+    BookmarksTable:       ${file(./cloudformation/tables.yml):BookmarksTable}
+    IdentitiesTable:      ${file(./cloudformation/tables.yml):IdentitiesTable}
+
+    AssetsBucket:         ${file(./cloudformation/buckets.yml):AssetsBucket}
+
+    SearchCluster:        ${file(./cloudformation/search-clusters.yml):SearchCluster}

@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "141",
+                "sequenceNumber": "49567308792040245856290453603656019006812902757568086018",
+                "data": "W3siY291cnNlLWlkIjoib2ZmY291cnNlOjpuYXBvbGVvbjo6MTIzIiwiYmFzZS1pZCI6Im9mZmNvdXJzZTo6bmFwb2xlb246OjEyMyIsInJlcG9zaXRvcnkiOiJvZmZjb3Vyc2UiLCJnb2FsIjoiRG8gQSBMb3QiLCJjdXJhdG9yIjoibmFwb2xlb24iLCJ2ZXJzaW9uIjpbMCwwLDFdLCJyZXZpc2lvbiI6MSwiY2hlY2twb2ludHMiOlt7ImNoZWNrcG9pbnQtaWQiOjAsInRhc2siOiJkbyBzb21ldGhpbmciLCJyZXNvdXJjZS11cmwiOiJodHRwOi8vb2ZmY291cnNlLmlvIn0seyJjaGVja3BvaW50LWlkIjoxLCJ0YXNrIjoiZG8gc29tZXRoaW5nIGVsc2UiLCJyZXNvdXJjZS11cmwiOiJodHRwOi8vdW5hY2FkZW1pYy5pbyJ9XX1d",
+                "approximateArrivalTimestamp": 1478294655.615
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567308792040245856290453603656019006812902757568086018",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/raw-courses-dev"
+        }
+    ]
+}
