@@ -16,21 +16,18 @@
 
   (defmethod action-spec :transform [_]
     (spec/tuple ::action-types (spec/or :embedly           (spec/coll-of ::embedly/resource)
+                                        :github-repos      (spec/coll-of ::github/repo)
                                         :courses           (spec/coll-of ::course/course)
                                         :raw-users         (spec/coll-of ::raw/user)
                                         :raw-courses       (spec/coll-of ::raw/course))))
 
 
   (defmethod action-spec :put [_]
-    (spec/tuple ::action-types (spec/or :bookmark          ::bookmark/bookmark
-                                        :github-repo       ::github/repo
-                                        :bookmarks         (spec/coll-of ::bookmark/bookmark)
-                                        :courses           (spec/coll-of ::course/course)
-                                        :github-courses    (spec/coll-of ::github/course)
-                                        :resources         (spec/coll-of ::resource/resource)
-                                        :raw-resources     (spec/coll-of ::embedly/resource)
-                                        :profiles          (spec/coll-of ::profile/profile)
-                                        :raw-portraits     (spec/coll-of ::profile/portrait)
-                                        :identities        (spec/coll-of ::identity/identity))))
-
-  )
+    (spec/tuple ::action-types (spec/or :bookmarks          (spec/coll-of ::bookmark/bookmark)
+                                        :courses            (spec/coll-of ::course/course)
+                                        :raw-github-courses (spec/coll-of ::github/course)
+                                        :resources          (spec/coll-of ::resource/resource)
+                                        :raw-resources      (spec/coll-of ::embedly/resource)
+                                        :profiles           (spec/coll-of ::profile/profile)
+                                        :raw-portraits      (spec/coll-of ::profile/portrait)
+                                        :identities         (spec/coll-of ::identity/identity)))))

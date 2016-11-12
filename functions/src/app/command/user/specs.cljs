@@ -20,7 +20,7 @@
 
   (defmethod action-spec :put [_]
     (spec/tuple ::action-types (spec/or :courses (spec/coll-of ::raw/course)
-                                        :github-repos (spec/coll-of ::github/repo))))
+                                        :raw-github-repos (spec/coll-of ::github/repo))))
 
   (defmethod action-spec :add [_]
     (spec/tuple ::action-types (spec/or :course ::course/course))))

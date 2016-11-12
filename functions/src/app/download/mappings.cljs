@@ -11,9 +11,13 @@
 (defn mappings []
   (defmethod perform [:download :github-repos] [{:keys [github]} [_ payload]]
     (go
-      (let [{:keys [found] :as res} (async/<! (qa/fetch github payload))]
-        res)))
+      (let [{:keys [found errors]} (async/<! (qa/fetch github payload))]
+        {:imported found :errors errors})))
 
+  (defmethod perform [:download :github-courses] [{:keys [github]} [_ payload]]
+    (go
+      (let [{:keys [found errors]} (async/<! (qa/fetch github payload))]
+        {:imported found :errors errors})))
 
   (defmethod perform [:download :bookmarks] [{:keys [embedly]} [_ payload]]
     (go
@@ -27,6 +31,12 @@
             {:keys [found errors] :as res} (async/<! (qa/fetch http query))
             portraits (keep #(impl/create-portrait %1 payload) found)]
         {:imported portraits :errors errors})))
+
+  (defmethod perform [:put :github-repos] [{:keys [bucket]} action]
+    (ac/perform bucket (cv/to-bucket action)))
+
+  (defmethod perform [:put :github-courses] [{:keys [bucket]} action]
+    (ac/perform bucket (cv/to-bucket action)))
 
   (defmethod perform [:put :raw-resources] [{:keys [bucket]} action]
     (ac/perform bucket (cv/to-bucket action)))

@@ -2,7 +2,16 @@
   (:require [backend-shared.service.index :refer [perform]]
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
-            [app.transform.implementation :as impl]))
+            [app.transform.implementation :as impl]
+            [shared.protocols.loggable :as log]))
+
+(defn yaml-file? [{:keys [path] :as ref}]
+  (re-find #"\.yaml$" path))
+
+(defn to-courses [{:keys [tree user-name] :as res}]
+    (->> tree
+         (filterv yaml-file?)
+         (map #(assoc %1 :user-name user-name))))
 
 (defn mappings []
 
@@ -10,6 +19,9 @@
     {:profiles (map impl/to-profile payload)
      :portraits (map impl/to-portrait payload)
      :identities (mapcat impl/to-identities payload)})
+
+  (defmethod perform [:transform :github-repos] [_ [_ payload]]
+    {:courses (mapcat to-courses payload)})
 
   (defmethod perform [:transform :embedly] [_ [_ raw-resources]]
     (let [converted (keep impl/to-resource raw-resources)]
@@ -19,6 +31,7 @@
 
   (defmethod perform [:transform :courses] [_ [_ courses]]
     {:bookmarks (mapcat impl/to-bookmark courses)})
+
 
   (defmethod perform :default [{:keys [stream stage]} action]
     (ac/perform stream (cv/to-stream action))))

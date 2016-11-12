@@ -15,5 +15,5 @@
                                                             mappings specs/actions)
           payload                           (cv/to-payload raw-event)
           {:keys [imported errors] :as res} (async/<! (ac/perform service [:download payload]))
-          #_res                             #_ (async/<! (ac/perform service [:put imported]))]
+          res                               (async/<! (ac/perform service [:put imported]))]
       (service/done service res))))

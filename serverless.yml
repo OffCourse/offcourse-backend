@@ -51,6 +51,12 @@ functions:
       - s3:
           bucket: ${self:service}-courses-${opt:stage}
           event: s3:ObjectCreated:*
+      - s3:
+          bucket: ${self:service}-github-repos-${opt:stage}
+          event: s3:ObjectCreated:*
+      - s3:
+          bucket: ${self:service}-github-courses-${opt:stage}
+          event: s3:ObjectCreated:*
   transform:
     handler: functions/index.transform
     events:
@@ -62,6 +68,9 @@ functions:
           startingPosition: LATEST
       - stream: 
           arn: ${self:custom.kinesisBase}/courses-${opt:stage}
+          startingPosition: LATEST
+      - stream:
+          arn: ${self:custom.kinesisBase}/github-repos-${opt:stage}
           startingPosition: LATEST
   save:
     handler: functions/index.save
@@ -91,7 +100,10 @@ functions:
           arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}
           startingPosition: LATEST
       - stream:
-          arn: ${self:custom.kinesisBase}/github-repos-${opt:stage}
+          arn: ${self:custom.kinesisBase}/raw-github-repos-${opt:stage}
+          startingPosition: LATEST
+      - stream:
+          arn: ${self:custom.kinesisBase}/raw-github-courses-${opt:stage}
           startingPosition: LATEST
   index:
     handler: functions/index.index
@@ -105,28 +117,31 @@ functions:
 
 resources:
   Resources:
-    AccessBucketsRole:    ${file(./cloudformation/roles.yml):AccessBucketsRole}  
-    ViewAssetsPolicy:     ${file(./cloudformation/roles.yml):ViewAssetsPolicy}  
+    AccessBucketsRole:      ${file(./cloudformation/roles.yml):AccessBucketsRole}  
+    ViewAssetsPolicy:       ${file(./cloudformation/roles.yml):ViewAssetsPolicy}  
 
-    RawUsersStream:       ${file(./cloudformation/streams.yml):RawUsersStream}
-    RawPortraitsStream:   ${file(./cloudformation/streams.yml):RawPortraitsStream}
-    RawResourcesStream:   ${file(./cloudformation/streams.yml):RawResourcesStream}
-    RawCoursesStream:     ${file(./cloudformation/streams.yml):RawCoursesStream}
+    RawUsersStream:         ${file(./cloudformation/streams.yml):RawUsersStream}
+    RawPortraitsStream:     ${file(./cloudformation/streams.yml):RawPortraitsStream}
+    RawResourcesStream:     ${file(./cloudformation/streams.yml):RawResourcesStream}
+    RawCoursesStream:       ${file(./cloudformation/streams.yml):RawCoursesStream}
+    RawGithubCoursesStream: ${file(./cloudformation/streams.yml):RawGithubCoursesStream}
+    RawGithubReposStream:   ${file(./cloudformation/streams.yml):RawGithubReposStream}
 
-    PortraitsStream:      ${file(./cloudformation/streams.yml):PortraitsStream}
-    ProfilesStream:       ${file(./cloudformation/streams.yml):ProfilesStream}
-    IdentitiesStream:     ${file(./cloudformation/streams.yml):IdentitiesStream}
-    CoursesStream:        ${file(./cloudformation/streams.yml):CoursesStream}
-    BookmarksStream:      ${file(./cloudformation/streams.yml):BookmarksStream}
-    ResourcesStream:      ${file(./cloudformation/streams.yml):ResourcesStream}
-    GithubReposStream:    ${file(./cloudformation/streams.yml):GithubReposStream}
+    PortraitsStream:        ${file(./cloudformation/streams.yml):PortraitsStream}
+    ProfilesStream:         ${file(./cloudformation/streams.yml):ProfilesStream}
+    IdentitiesStream:       ${file(./cloudformation/streams.yml):IdentitiesStream}
+    CoursesStream:          ${file(./cloudformation/streams.yml):CoursesStream}
+    BookmarksStream:        ${file(./cloudformation/streams.yml):BookmarksStream}
+    ResourcesStream:        ${file(./cloudformation/streams.yml):ResourcesStream}
+    GithubReposStream:      ${file(./cloudformation/streams.yml):GithubReposStream}
+    GithubCoursesStream:    ${file(./cloudformation/streams.yml):GithubCoursesStream}
     
-    ResourcesTable:       ${file(./cloudformation/tables.yml):ResourcesTable}
-    ProfilesTable:        ${file(./cloudformation/tables.yml):ProfilesTable}
-    CoursesTable:         ${file(./cloudformation/tables.yml):CoursesTable}
-    BookmarksTable:       ${file(./cloudformation/tables.yml):BookmarksTable}
-    IdentitiesTable:      ${file(./cloudformation/tables.yml):IdentitiesTable}
+    ResourcesTable:         ${file(./cloudformation/tables.yml):ResourcesTable}
+    ProfilesTable:          ${file(./cloudformation/tables.yml):ProfilesTable}
+    CoursesTable:           ${file(./cloudformation/tables.yml):CoursesTable}
+    BookmarksTable:         ${file(./cloudformation/tables.yml):BookmarksTable}
+    IdentitiesTable:        ${file(./cloudformation/tables.yml):IdentitiesTable}
 
-    AssetsBucket:         ${file(./cloudformation/buckets.yml):AssetsBucket}
+    AssetsBucket:           ${file(./cloudformation/buckets.yml):AssetsBucket}
 
-    SearchCluster:        ${file(./cloudformation/search-clusters.yml):SearchCluster}
+    SearchCluster:          ${file(./cloudformation/search-clusters.yml):SearchCluster}

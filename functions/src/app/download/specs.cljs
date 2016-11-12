@@ -11,10 +11,13 @@
 (defn actions []
 
   (defmethod action-spec :download [_]
-    (spec/tuple ::action-types (spec/or :bookmarks  (spec/* ::bookmark/bookmark)
-                                        :github-repos (spec/coll-of ::github/repo)
-                                        :portraits  (spec/coll-of ::profile/portrait))))
+    (spec/tuple ::action-types (spec/or :bookmarks      (spec/* ::bookmark/bookmark)
+                                        :github-repos   (spec/coll-of ::github/repo)
+                                        :github-courses (spec/coll-of ::github/course)
+                                        :portraits      (spec/coll-of ::profile/portrait))))
 
   (defmethod action-spec :put [_]
-    (spec/tuple ::action-types (spec/or :raw-resources     (spec/coll-of ::embedly/resource)
-                                        :raw-portraits     (spec/coll-of ::profile/portrait)))))
+    (spec/tuple ::action-types (spec/or :raw-resources         (spec/coll-of ::embedly/resource)
+                                        :github-repos          (spec/coll-of ::github/repo)
+                                        :github-courses        (spec/coll-of ::github/course)
+                                        :raw-portraits         (spec/coll-of ::profile/portrait)))))

@@ -63,9 +63,30 @@ RawCoursesStream:
     Name: raw-courses-${opt:stage}
     ShardCount: 1
 
-GithubReposStream:
+RawGithubReposStream:
   Type: AWS::Kinesis::Stream
   DependsOn: ResourcesStream
+  Properties:
+    Name: raw-github-repos-${opt:stage}
+    ShardCount: 1
+
+GithubCoursesStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: RawUsersStream
+  Properties:
+    Name: github-courses-${opt:stage}
+    ShardCount: 1
+
+RawGithubCoursesStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: RawPortraitsStream
+  Properties:
+    Name: raw-github-courses-${opt:stage}
+    ShardCount: 1
+
+GithubReposStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: RawResourcesStream
   Properties:
     Name: github-repos-${opt:stage}
     ShardCount: 1
