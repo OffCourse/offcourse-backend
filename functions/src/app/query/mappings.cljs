@@ -7,7 +7,7 @@
 
 (defn mappings []
   (defmethod fetch :collection [{:keys [index stage]} query]
-    (qa/fetch index "courses" query))
+    (qa/fetch index "courses" (cv/to-search query)))
 
   (defmethod fetch :course [{:keys [index stage]} query]
     (qa/fetch index "courses" query))

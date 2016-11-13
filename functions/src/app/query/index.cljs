@@ -14,13 +14,13 @@
   (go
     (let [service                         (service/create :query cb [:index :stream]
                                                           mappings specs/actions)
-          query                           (cv/to-query raw-event)
+          query                           (-> raw-event cv/to-query)
           {:keys [found error not-found]} (async/<! (qa/fetch service query))]
       (service/done service found)
       (when error
         (service/fail service error))
       (when not-found
-        (<! (ac/perform service [:put query])))
+        #_(<! (ac/perform service [:put query])))
       (if found
         (service/done service found)
         (service/done service {:not-found query})))))

@@ -90,3 +90,11 @@ GithubReposStream:
   Properties:
     Name: github-repos-${opt:stage}
     ShardCount: 1
+
+
+ErrorsStream:
+  Type: AWS::Kinesis::Stream
+  DependsOn: RawCoursesStream
+  Properties:
+    Name: errors-${opt:stage}
+    ShardCount: 1

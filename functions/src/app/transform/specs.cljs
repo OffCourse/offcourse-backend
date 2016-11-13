@@ -17,10 +17,10 @@
   (defmethod action-spec :transform [_]
     (spec/tuple ::action-types (spec/or :embedly           (spec/coll-of ::embedly/resource)
                                         :github-repos      (spec/coll-of ::github/repo)
+                                        :github-courses    (spec/coll-of ::github/course)
                                         :courses           (spec/coll-of ::course/course)
                                         :raw-users         (spec/coll-of ::raw/user)
                                         :raw-courses       (spec/coll-of ::raw/course))))
-
 
   (defmethod action-spec :put [_]
     (spec/tuple ::action-types (spec/or :bookmarks          (spec/coll-of ::bookmark/bookmark)
@@ -30,4 +30,5 @@
                                         :raw-resources      (spec/coll-of ::embedly/resource)
                                         :profiles           (spec/coll-of ::profile/profile)
                                         :raw-portraits      (spec/coll-of ::profile/portrait)
-                                        :identities         (spec/coll-of ::identity/identity)))))
+                                        :identities         (spec/coll-of ::identity/identity)
+                                        :errors             any?))))

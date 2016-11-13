@@ -37,6 +37,14 @@ functions:
           cors: true
           integration: lambda
           authorizer: authorize
+  query:
+    handler: functions/index.query
+    events:
+      - http:
+          path: query
+          method: post
+          cors: true
+          integration: lambda
   authorize:
     handler: functions/index.authorize
   retrieve:
@@ -71,6 +79,9 @@ functions:
           startingPosition: LATEST
       - stream:
           arn: ${self:custom.kinesisBase}/github-repos-${opt:stage}
+          startingPosition: LATEST
+      - stream:
+          arn: ${self:custom.kinesisBase}/github-courses-${opt:stage}
           startingPosition: LATEST
   save:
     handler: functions/index.save
@@ -127,6 +138,7 @@ resources:
     RawGithubCoursesStream: ${file(./cloudformation/streams.yml):RawGithubCoursesStream}
     RawGithubReposStream:   ${file(./cloudformation/streams.yml):RawGithubReposStream}
 
+    ErrorsStream:           ${file(./cloudformation/streams.yml):ErrorsStream}
     PortraitsStream:        ${file(./cloudformation/streams.yml):PortraitsStream}
     ProfilesStream:         ${file(./cloudformation/streams.yml):ProfilesStream}
     IdentitiesStream:       ${file(./cloudformation/streams.yml):IdentitiesStream}

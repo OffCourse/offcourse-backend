@@ -1,0 +1,36 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "31",
+                "sequenceNumber": "49567556817717036605289483141958032391396837121761214466",
+                "data": "eyJwYXRoIjoiV3JpdGVfSW5fTWFya2Rvd24ueWFtbCIsImVuY29kaW5nIjoiYmFzZTY0IiwiY29udGVudCI6IlkzVnlZWFJ2Y2pvZ1EyaGhjbXh2ZEhSbENtZHZZV3c2SUZkeWFYUmxJR2x1SUUxaGNtdGtiM2R1Q21Ob1xuWldOcmNHOXBiblJ6T2dvZ0lDMGdkR0Z6YXpvZ1RHOTJaU0JUYVcxd2JHbGphWFI1Q2lBZ0lDQnlaWE52XG5kWEpqWlMxMWNtdzZJQ2RvZEhSd2N6b3ZMM3BoY0dsbGNpNWpiMjB2WW14dlp5OWlaV2RwYm01bGNpMTFcbmJIUnBiV0YwWlMxbmRXbGtaUzF0WVhKclpHOTNiaThuQ2lBZ0xTQjBZWE5yT2lCR2IzSnRZWFFnVkdWNFxuZENCM2FYUm9JRXAxYzNRZ1dXOTFjaUJMWlhsaWIyRnlaQW9nSUNBZ2NtVnpiM1Z5WTJVdGRYSnNPaUFuXG5hSFIwY0RvdkwyUmhjbWx1WjJacGNtVmlZV3hzTG01bGRDOXdjbTlxWldOMGN5OXRZWEpyWkc5M2JpOXpcbmVXNTBZWGduQ2lBZ0xTQjBZWE5yT2lCWGNtbDBaU0JUYjIxbElFMWhjbXRrYjNkdUlGbHZkWEp6Wld4bVxuQ2lBZ0lDQnlaWE52ZFhKalpTMTFjbXc2SUNkb2RIUndPaTh2Wkdsc2JHbHVaMlZ5TG1sdkx5Y0tJQ0F0XG5JSFJoYzJzNklFUnZJRTF2Y21VZ2QybDBhQ0JOWVhKclpHOTNiZ29nSUNBZ2NtVnpiM1Z5WTJVdGRYSnNcbk9pQW5hSFIwY0RvdkwyeHBabVZvWVdOclpYSXVZMjl0THpVNU5ETXpNakF2SndvZ0lDMGdkR0Z6YXpvZ1xuUTJodmIzTmxJRmx2ZFhJZ1QzZHVJRTFoY210a2IzZHVJRVZrYVhSdmNnb2dJQ0FnY21WemIzVnlZMlV0XG5kWEpzT2lBbmFIUjBjRG92TDIxaGMyaGhZbXhsTG1OdmJTOHlNREV6THpBMkx6STBMMjFoY210a2IzZHVcbkxYUnZiMnh6THljS1xuIiwidXNlci1uYW1lIjoieWVlaGFhIiwibW9kZSI6IjEwMDY0NCIsInR5cGUiOiJibG9iIiwic2l6ZSI6NTQ5LCJ1cmwiOiJodHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL09mZkNvdXJzZS9iYXNpY3dlYmRldl8zL2dpdC9ibG9icy81MWQ0N2QzYjA3YjM4ODcyOGI3MzE5MmUyZmI3MTY2NjRmMjc1NTVlIiwic2hhIjoiNTFkNDdkM2IwN2IzODg3MjhiNzMxOTJlMmZiNzE2NjY0ZjI3NTU1ZSJ9",
+                "approximateArrivalTimestamp": 1479065844.68
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567556817717036605289483141958032391396837121761214466",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/github-courses-dev"
+        },
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "804",
+                "sequenceNumber": "49567556817717036605289483141960450243036066380110626818",
+                "data": "eyJwYXRoIjoiV29ya19XaXRoX0Jhc2ljX0RhdGFfVHlwZXMueWFtbCIsImVuY29kaW5nIjoiYmFzZTY0IiwiY29udGVudCI6IlkzVnlZWFJ2Y2pvZ1EyaGhjbXh2ZEhSbENtZHZZV3c2SUZkdmNtc2dkMmwwYUNCQ1lYTnBZeUJFWVhSaFxuSUZSNWNHVnpDbU5vWldOcmNHOXBiblJ6T2dvZ0lDMGdkR0Z6YXpvZ1RHVmhjbTRnWVdKdmRYUWdRbUZ6XG5hV01nVm1Gc2RXVnpDaUFnSUNCeVpYTnZkWEpqWlMxMWNtdzZJQ2RvZEhSd09pOHZaV3h2Y1hWbGJuUnFcbllYWmhjMk55YVhCMExtNWxkQzh3TVY5MllXeDFaWE11YUhSdGJDY0tJQ0F0SUhSaGMyczZJRTFoYm1sd1xuZFd4aGRHVWdWbUZzZFdWeklHbHVJSFJvWlNCRGIyNXpiMnhsQ2lBZ0lDQnlaWE52ZFhKalpTMTFjbXc2XG5JQ2RvZEhSd09pOHZhbUYyWVhOamNtbHdkQzF5YjJGa2RISnBjQzVqYjJSbGMyTm9iMjlzTG1OdmJTOXNcblpYWmxiSE12TVM5amFHRnNiR1Z1WjJWekx6RW5DaUFnTFNCMFlYTnJPaUJEYjJSbElHRWdSbUZwY25rZ1xuVkdGc1pRb2dJQ0FnY21WemIzVnlZMlV0ZFhKc09pQW5hSFIwY0RvdkwyTnZiWEIxZEdGMGFXOXVZV3gwXG5ZV3hsY3k1aWJHOW5jM0J2ZEM1aVpTOHlNREV4THpBNEwyWjFiaTEzYVhSb0xXSnZiMnhsWVc0dGMzUmhcbmRHVnRaVzUwY3k1b2RHMXNKd29nSUMwZ2RHRnphem9nVkdWc2JDQkZiR2w2WVFvZ0lDQWdjbVZ6YjNWeVxuWTJVNklDZG9kSFJ3T2k4dmQzZDNMbTFoYzNOM1pYSnJMbUYwTHljS0lDQXRJSFJoYzJzNklDSk1aWFFuXG5jeUJRWVhKMGVUOGlDaUFnSUNCeVpYTnZkWEpqWlMxMWNtdzZJQ2RvZEhSd2N6b3ZMMnBsYm01cFptVnlcblpHVjNZV3gwTG1OdmJTOXdZWEowZVY5MGFXMWxMbWgwYld3bkNnPT1cbiIsInVzZXItbmFtZSI6InllZWhhYSIsIm1vZGUiOiIxMDA2NDQiLCJ0eXBlIjoiYmxvYiIsInNpemUiOjU2OCwidXJsIjoiaHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvcy9PZmZDb3Vyc2UvYmFzaWN3ZWJkZXZfMy9naXQvYmxvYnMvMjkxYTVmMTNhYjVkN2IxMjQyMjJkMmI3OGQzMzljYmM4YzAxMWQwNyIsInNoYSI6IjI5MWE1ZjEzYWI1ZDdiMTI0MjIyZDJiNzhkMzM5Y2JjOGMwMTFkMDcifQ==",
+                "approximateArrivalTimestamp": 1479065844.681
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000000:49567556817717036605289483141960450243036066380110626818",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::774182433398:role/offcourse-dev-IamRoleLambdaExecution-1USS5FMBD7XZA",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:774182433398:stream/github-courses-dev"
+        }
+    ]
+}

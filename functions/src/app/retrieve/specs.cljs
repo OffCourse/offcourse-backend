@@ -10,5 +10,6 @@
 (defn actions []
   (defmethod action-spec :put [_]
     (spec/tuple ::action-types (spec/or :courses (spec/coll-of ::raw/course)
+                                        :github-courses (spec/coll-of ::github/course)
                                         :github-repos (spec/coll-of ::github/repo)
                                         :raw-users (spec/coll-of ::raw/user)))))

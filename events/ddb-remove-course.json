@@ -1,0 +1,23 @@
+{
+    "Records": [
+        {
+            "eventID": "cafc97d13bb7dc282d0b7b466d12a9d3",
+            "eventName": "REMOVE",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1479065760,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://unacademic.io"
+                    }
+                },
+                "SequenceNumber": "56180000000000001885999555",
+                "SizeBytes": 32,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/resources-dev/stream/2016-11-01T20:58:43.405"
+        }
+    ]
+}
