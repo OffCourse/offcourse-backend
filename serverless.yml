@@ -105,9 +105,6 @@ functions:
     handler: functions/index.download
     events:
       - stream: 
-          arn: ${self:custom.kinesisBase}/raw-portraits-${opt:stage}
-          startingPosition: LATEST
-      - stream: 
           arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}
           startingPosition: LATEST
       - stream:
