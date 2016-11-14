@@ -113,6 +113,9 @@ functions:
       - stream:
           arn: ${self:custom.kinesisBase}/raw-github-courses-${opt:stage}
           startingPosition: LATEST
+      - stream:
+          arn: ${self:custom.kinesisBase}/raw-portraits-${opt:stage}
+          startingPosition: LATEST
   index:
     handler: functions/index.index
     events:

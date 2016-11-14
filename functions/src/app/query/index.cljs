@@ -15,7 +15,7 @@
     (let [service                         (service/create :query cb [:index :stream]
                                                           mappings specs/actions)
           query                           (-> raw-event cv/to-query)
-          {:keys [found error not-found]} (async/<! (qa/fetch service query))]
+          {:keys [found error not-found] :as res} (async/<! (qa/fetch service query))]
       (service/done service found)
       (when error
         (service/fail service error))

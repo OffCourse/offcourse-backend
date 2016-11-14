@@ -15,5 +15,5 @@
     (let [service         (service/create :retrieve cb [:bucket :stream] mappings specs/actions)
           query           (cv/to-query raw-event)
           {:keys [found]} (async/<! (qa/fetch service query))
-          res             nil #_(async/<! (ac/perform service [:put found]))]
+          res             (async/<! (ac/perform service [:put found]))]
       (service/done service found))))

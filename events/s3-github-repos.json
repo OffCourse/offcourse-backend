@@ -4,17 +4,17 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-11-11T22:04:50.763Z",
+            "eventTime": "2016-11-14T14:10:54.675Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_994_20161111210923492"
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_30_20161114103722160"
             },
             "requestParameters": {
-                "sourceIPAddress": "52.90.241.249"
+                "sourceIPAddress": "54.227.91.71"
             },
             "responseElements": {
-                "x-amz-request-id": "7C158D3C90AF8130",
-                "x-amz-id-2": "Lu5r3bwuaIdItsQ8yRQAW882l0BOhEUjVSeRFWYuRfeCIGb+bNwE5CVDUzG1kjENHgUXlopCZMY="
+                "x-amz-request-id": "A628308DE228D0CE",
+                "x-amz-id-2": "tCsQYzlzfwPZVOa9IaVeFli0GsyvM7v3MdcQY4egYqgXK6Ptcx7LW6/GOMKbCJQXzOrkQTl+OYg="
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
@@ -27,10 +27,10 @@
                     "arn": "arn:aws:s3:::offcourse-github-repos-dev"
                 },
                 "object": {
-                    "key": "yeehaa/basicwebdev_3",
+                    "key": "yeehaa/7e2e5360ad885dbad6c2251ae216f149aaa72d54",
                     "size": 2144,
-                    "eTag": "9ee752e69bb7b311a56d90b3469825ad",
-                    "sequencer": "0058264082AA401733"
+                    "eTag": "dfb0190103cfbb6703fa00a2ffeb697f",
+                    "sequencer": "005829C5EE92C21E3A"
                 }
             }
         }
