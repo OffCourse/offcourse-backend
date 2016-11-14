@@ -1,0 +1,95 @@
+{
+    "body": {
+        "action-type": "sign-up",
+        "payload": {
+            "user-name": "Something",
+            "auth-profile": {
+                "html_url": "https://github.com/ZaturrbyTester",
+                "gravatar_id": "",
+                "followers_url": "https://api.github.com/users/ZaturrbyTester/followers",
+                "subscriptions_url": "https://api.github.com/users/ZaturrbyTester/subscriptions",
+                "site_admin": false,
+                "email": "SilverEagleNL@gmail.com",
+                "global_client_id": "gNekNlno3HRZpRnbULXEcDoqBKaKoWUg",
+                "following_url": "https://api.github.com/users/ZaturrbyTester/following{/other_user}",
+                "name": "SilverEagleNL@gmail.com",
+                "nickname": "ZaturrbyTester",
+                "type": "User",
+                "received_events_url": "https://api.github.com/users/ZaturrbyTester/received_events",
+                "email_verified": true,
+                "following": 0,
+                "updated_at": "2016-11-14T20:14:21.588Z",
+                "organizations_url": "https://api.github.com/users/ZaturrbyTester/orgs",
+                "picture": "https://avatars.githubusercontent.com/u/8642612?v=3",
+                "events_url": "https://api.github.com/users/ZaturrbyTester/events{/privacy}",
+                "url": "https://api.github.com/users/ZaturrbyTester",
+                "public_gists": 1,
+                "repos_url": "https://api.github.com/users/ZaturrbyTester/repos",
+                "user_id": "github|8642612",
+                "public_repos": 0,
+                "starred_url": "https://api.github.com/users/ZaturrbyTester/starred{/owner}{/repo}",
+                "emails": [
+                    {
+                        "email": "SilverEagleNL@gmail.com",
+                        "primary": true,
+                        "verified": true
+                    }
+                ],
+                "identities": [
+                    {
+                        "provider": "github",
+                        "user_id": 8642612,
+                        "connection": "github",
+                        "isSocial": true
+                    }
+                ],
+                "followers": 0,
+                "clientID": "Z1J0CyMzZfIbOfBSVaMWJakoIrxm4Tfs",
+                "gists_url": "https://api.github.com/users/ZaturrbyTester/gists{/gist_id}",
+                "created_at": "2016-11-14T19:49:41.736Z"
+            }
+        }
+    },
+    "method": "POST",
+    "principalId": "github|8642612",
+    "stage": "dev",
+    "headers": {
+        "Accept": "application/transit+json, application/transit+transit, application/json, text/plain, text/html, */*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US,en;q=0.8,nl;q=0.6",
+        "Authorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3llZWhhYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ2l0aHVifDg2NDI2MTIiLCJhdWQiOiJaMUowQ3lNelpmSWJPZkJTVmFNV0pha29JcnhtNFRmcyIsImV4cCI6MTQ3OTE5MDQ2MSwiaWF0IjoxNDc5MTU0NDYxfQ.DqjUB7EUGuPRRsmgC_buW9gninFcfpAxF6-H65vTsho",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "NL",
+        "Content-Type": "application/json",
+        "Host": "akd5yk8kih.execute-api.us-east-1.amazonaws.com",
+        "Origin": "http://localhost:3000",
+        "Referer": "http://localhost:3000/flags/featured",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
+        "Via": "1.1 d2fa707728d9947a31db9f8dc3e9e56c.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "JHUJomwJV6i9H7NbnwFfqAkH4Vqu_DF-2P3IQCF1BKMfTIViLT-8nw==",
+        "X-Forwarded-For": "95.97.17.4, 54.240.145.3",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "query": {},
+    "path": {},
+    "identity": {
+        "cognitoIdentityPoolId": "",
+        "accountId": "",
+        "cognitoIdentityId": "",
+        "caller": "",
+        "apiKey": "",
+        "sourceIp": "95.97.17.4",
+        "accessKey": "",
+        "cognitoAuthenticationType": "",
+        "cognitoAuthenticationProvider": "",
+        "userArn": "",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36",
+        "user": ""
+    },
+    "stageVariables": {}
+}
