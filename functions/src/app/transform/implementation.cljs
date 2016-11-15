@@ -18,6 +18,7 @@
   (when-not (= "error" type)
     (let [record {:resource-url  original_url
                   :bookmark-url  (when (not= original_url url) original_url)
+                  :title         title
                   :resource-type type
                   :content       content
                   :language      language
