@@ -6,7 +6,8 @@
             [shared.protocols.loggable :as log]
             [cljs.nodejs :as node]
             [clojure.walk :as walk]
-            [shared.models.course.index :as co]))
+            [shared.models.course.index :as co]
+            [clojure.string :as clj-str]))
 
 (def atob (node/require "atob"))
 (def yaml (node/require "js-yaml"))
@@ -28,7 +29,8 @@
                      (.safeLoad yaml)
                      js->clj
                      walk/keywordize-keys)]
-    (co/initialize (assoc new-course :repository "offcourse") user-name)))
+    (co/initialize (assoc new-course :repository "offcourse"
+                          :curator (clj-str/lower-case user-name)))))
 
 (defn mappings []
 

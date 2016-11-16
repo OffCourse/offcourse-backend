@@ -20,4 +20,4 @@
           payloads  (ac/perform service [:transform payload])
           ops-chans (async/merge (map #(ac/perform service [:put %]) (vals payloads)))
           res       (async/<! (async/into [] ops-chans))]
-      (service/done service res))))
+      (service/done service payloads))))

@@ -14,6 +14,13 @@
 
 (defn actions []
 
+  (defmethod action-spec :add [_]
+    (spec/tuple ::action-types (spec/or :meta #{:meta}
+                                        :id   #{:id})))
+
+  (defmethod action-spec :index [_]
+    (spec/tuple ::action-types (spec/or :checkpoints #{:checkpoints})))
+
   (defmethod action-spec :transform [_]
     (spec/tuple ::action-types (spec/or :embedly           (spec/coll-of ::embedly/resource)
                                         :github-repos      (spec/coll-of ::github/repo)
