@@ -1,14 +1,12 @@
 (ns app.authorize.specs
   (:require [cljs.spec :as spec]
-            [shared.specs.action :as action :refer [action-spec]]
-            [shared.specs.aws :as aws]))
-
-(spec/def ::action-types action/types)
+            [backend-shared.specs.index]
+            [shared.specs.action :refer [action-spec]]))
 
 (defn actions []
 
   (defmethod action-spec :verify [_]
-    (spec/tuple ::action-types (spec/or :credentials ::aws/auth-event)))
+    (spec/tuple :offcourse/actions (spec/or :credentials :auth/aws)))
 
   (defmethod action-spec :create [_]
-    (spec/tuple ::action-types (spec/or :credentials ::aws/auth-event))))
+    (spec/tuple :offcourse/actions (spec/or :credentials :auth/aws))))

@@ -1,5 +1,5 @@
 {
-    "type": "TOKEN",
-    "authorizationToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3llZWhhYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ2l0aHVifDc2Njg1MDYiLCJhdWQiOiJaMUowQ3lNelpmSWJPZkJTVmFNV0pha29JcnhtNFRmcyIsImV4cCI6MTQ3ODU2NTQ3MCwiaWF0IjoxNDc4NTI5NDcwfQ.o2_FIZ1ElhEIDBcwISjG2NE9kslGY4LK8q8I1WTQJHE",
-    "methodArn": "arn:aws:execute-api:us-east-1:774182433398:akd5yk8kih/dev/POST/command"
+  "type": "TOKEN",
+  "authorizationToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3llZWhhYS5ldS5hdXRoMC5jb20vIiwic3ViIjoiZ2l0aHVifDE3ODAzNTgiLCJhdWQiOiJaMUowQ3lNelpmSWJPZkJTVmFNV0pha29JcnhtNFRmcyIsImV4cCI6MTQ3OTc5ODM2NiwiaWF0IjoxNDc5NzYyMzY2fQ.7675r-jGrdX3Vl-Va2Lr0x-5_2i9o9zuWLk8kp9ahvQ",
+  "methodArn": "arn:aws:execute-api:us-east-1:774182433398:akd5yk8kih/dev/POST/command"
 }

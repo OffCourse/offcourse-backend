@@ -1,26 +1,27 @@
 (ns app.authorize.index
-  (:require [shared.protocols.loggable :as log]
-            [backend-shared.service.index :as service]
-            [shared.protocols.convertible :as cv]
-            [backend-shared.index]
+  (:require [app.authorize.mappings :refer [mappings]]
             [app.authorize.specs :as specs]
-            [shared.specs.action :as action :refer [action-spec]]
-            [app.authorize.mappings :refer [mappings]]
+            [backend-shared.service.index :as service]
             [cljs.core.async :as async]
-            [shared.protocols.queryable :as qa]
             [shared.protocols.actionable :as ac]
-            [backend-shared.aws-event.index :as aws-event]
-            [cljs.spec :as spec]
-            [shared.specs.aws :as aws])
+            [shared.protocols.loggable :as log]
+            [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn  authorize [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :authorize
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:db :auth :iam]}))
+
+(defn authorize [& args]
   (go
-    (let [service         (service/create :authorize cb [:db :auth :iam] mappings specs/actions)
-          auth-event      (aws-event/create raw-event)
-          verification    (async/<! (ac/perform service [:verify (aws-event/create raw-event)]))
-          {:keys [found]} (async/<! (qa/fetch service verification))
-          policy          (ac/perform service [:create (merge auth-event verification found)])]
-      (log/log "Policy:"  (clj->js policy))
+    (let [{:keys [event] :as service}   (apply initialize-service args)
+          {:keys [error] :as query}     (async/<! (ac/perform service [:verify event]))
+          {:keys [found error] :as res} (when-not error (async/<! (qa/fetch service query)))
+          auth-data                     (merge event query found)
+          policy                        (ac/perform service [:create auth-data])]
       (service/done service policy))))

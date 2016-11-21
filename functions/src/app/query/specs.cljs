@@ -1,7 +1,5 @@
 (ns app.query.specs
   (:require [cljs.spec :as spec]
-            [shared.specs.action :as action :refer [action-spec]]))
-
-(spec/def ::action-types action/types)
+            [shared.specs.action :refer [action-spec]]))
 
 (defn actions [])

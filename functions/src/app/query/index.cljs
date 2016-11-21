@@ -9,18 +9,21 @@
             [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn query [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :query
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:index]}))
+
+(defn query [& args]
   (go
-    (let [service                         (service/create :query cb [:index :stream]
-                                                          mappings specs/actions)
-          query                           (-> raw-event cv/to-query)
-          {:keys [found error not-found] :as res} (async/<! (qa/fetch service query))]
-      (service/done service found)
+    (let [{:keys [query] :as service}     (apply initialize-service args)
+          {:keys [found not-found error]} (async/<! (qa/fetch service query))]
       (when error
         (service/fail service error))
-      (when not-found
-        #_(<! (ac/perform service [:put query])))
-      (if found
-        (service/done service found)
-        (service/done service {:not-found query})))))
+      (if not-found
+        (service/done service {:not-found query})
+        (service/done service found)))))

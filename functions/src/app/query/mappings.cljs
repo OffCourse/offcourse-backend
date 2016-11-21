@@ -9,11 +9,15 @@
 
 (defn mappings []
   (defmethod fetch :collection [{:keys [index stage]} query]
-    (qa/fetch index "courses" (cv/to-search query)))
+    (go
+      (let [{:keys [found] :as res} (async/<! (qa/fetch index "courses" (cv/to-search query)))]
+        (if-not (empty? found)
+          res
+          (assoc res :not-found query)))))
 
   (defmethod fetch :course [{:keys [index stage]} query]
     (go
-      (when-let [{:keys [found]} (async/<! (qa/fetch index "courses" (cv/to-search query)))]
+      (let [{:keys [found]} (async/<! (qa/fetch index "courses" (cv/to-search query)))]
         {:found (first found)})))
 
   (defmethod fetch :resource [{:keys [index stage]} query]
