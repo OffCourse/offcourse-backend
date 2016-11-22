@@ -20,8 +20,9 @@
 
 (defn query [& args]
   (go
-    (let [{:keys [query] :as service}     (apply initialize-service args)
-          {:keys [found not-found error]} (async/<! (qa/fetch service query))]
+    (let [{:keys [event] :as service}     (apply initialize-service args)
+          query                           (cv/to-query event)
+          {:keys [found not-found error] :as res} (async/<! (qa/fetch service query))]
       (when error
         (service/fail service error))
       (if not-found

@@ -5,7 +5,8 @@
             [cljs.core.async :as async]
             [shared.protocols.actionable :as ac]
             [shared.protocols.loggable :as log]
-            [shared.protocols.queryable :as qa])
+            [shared.protocols.queryable :as qa]
+            [shared.protocols.convertible :as cv])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn initialize-service [raw-event raw-context cb]
@@ -19,9 +20,10 @@
 
 (defn authorize [& args]
   (go
-    (let [{:keys [event] :as service}   (apply initialize-service args)
-          {:keys [error] :as query}     (async/<! (ac/perform service [:verify event]))
-          {:keys [found error] :as res} (when-not error (async/<! (qa/fetch service query)))
-          auth-data                     (merge event query found)
-          policy                        (ac/perform service [:create auth-data])]
+    (let [{:keys [event] :as service} (apply initialize-service args)
+          credentials                 (cv/to-payload event)
+          {:keys [error] :as query}   (async/<! (ac/perform service [:verify credentials]))
+          {:keys [found error]}       (async/<! (qa/fetch service query))
+          updated-credentials         (merge credentials query found)
+          {:keys [policy]}            (ac/perform service [:create updated-credentials])]
       (service/done service policy))))

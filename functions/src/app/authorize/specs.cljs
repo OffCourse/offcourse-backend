@@ -6,7 +6,7 @@
 (defn actions []
 
   (defmethod action-spec :verify [_]
-    (spec/tuple :offcourse/actions (spec/or :credentials :auth/aws)))
+    (spec/tuple :offcourse/actions (spec/or :credentials :aws/credentials)))
 
   (defmethod action-spec :create [_]
-    (spec/tuple :offcourse/actions (spec/or :credentials :auth/aws))))
+    (spec/tuple :offcourse/actions (spec/or :credentials :aws/credentials))))

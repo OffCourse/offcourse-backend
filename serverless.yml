@@ -22,10 +22,7 @@ provider:
 custom:
   kinesisBase: arn:aws:kinesis:us-east-1:774182433398:stream
   dynamodbBase: arn:aws:dynamodb:us-east-1:774182433398:table
-  writeEnvVars: ${file(./envvars.yml):EnvVars}
-
-plugins:
-  - serverless-plugin-write-env-vars
+  envVars: ${file(./envvars.yml):EnvVars}
 
 functions:
   command:
@@ -39,6 +36,8 @@ functions:
           authorizer: authorize
   query:
     handler: functions/index.query
+    environment:
+      elasticsearchEndpoint: ${self:custom.envVars.elasticsearchEndpoint}
     events:
       - http:
           path: query
@@ -47,24 +46,26 @@ functions:
           integration: lambda
   authorize:
     handler: functions/index.authorize
+    environment:
+      authSecret: ${self:custom.envVars.auth0Secret}
   retrieve:
     handler: functions/index.retrieve
     events:
       - s3:
           bucket: ${self:service}-resources-${opt:stage}
-          event: s3:ObjectCreated:*
+          event:  s3:ObjectCreated:*
       - s3:
           bucket: ${self:service}-raw-users-${opt:stage}
-          event: s3:ObjectCreated:*
+          event:  s3:ObjectCreated:*
       - s3:
           bucket: ${self:service}-courses-${opt:stage}
-          event: s3:ObjectCreated:*
+          event:  s3:ObjectCreated:*
       - s3:
           bucket: ${self:service}-github-repos-${opt:stage}
-          event: s3:ObjectCreated:*
+          event:  s3:ObjectCreated:*
       - s3:
           bucket: ${self:service}-github-courses-${opt:stage}
-          event: s3:ObjectCreated:*
+          event:  s3:ObjectCreated:*
   transform:
     handler: functions/index.transform
     events:
