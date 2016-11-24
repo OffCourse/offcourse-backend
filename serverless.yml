@@ -104,6 +104,9 @@ functions:
           startingPosition: LATEST
   download:
     handler: functions/index.download
+    environment:
+      embedlyApiKey: ${self:custom.envVars.embedlyApiKey}
+      githubApiKey: ${self:custom.envVars.githubApiKey}
     events:
       - stream: 
           arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}

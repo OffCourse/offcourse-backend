@@ -8,12 +8,19 @@
             [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn download [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :download
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:bucket :http :github :embedly]}))
+
+(defn download [& args]
   (go
-    (let [service                           (service/create :download cb [:bucket :http :github :embedly]
-                                                            mappings specs/actions)
-          payload                           (cv/to-payload raw-event)
+    (let [{:keys [event] :as service}       (apply initialize-service args)
+          payload                           (cv/to-payload event)
           {:keys [imported errors] :as res} (async/<! (ac/perform service [:download payload]))
           res                               (async/<! (ac/perform service [:put imported]))]
       (service/done service res))))

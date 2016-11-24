@@ -11,13 +11,20 @@
 
 (node/enable-util-print!)
 
-(defn save [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :save
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:db]}))
+
+(defn save [& args]
   (go
-    (let [service                         (service/create :save cb [:db :bucket]
-                                                          mappings specs/actions)
-          payload                         (flatten (cv/to-payload raw-event))
-          {:keys [error success]}         (async/<! (ac/perform service [:put payload]))]
+    (let [{:keys [event] :as service} (apply initialize-service args)
+          payload                     (cv/to-payload event)
+          {:keys [error success]}     (async/<! (ac/perform service [:put payload]))]
       (when error
         (service/fail service {:error error}))
       (when success
