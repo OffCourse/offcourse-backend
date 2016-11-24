@@ -7,10 +7,13 @@
     (spec/tuple :offcourse/actions (spec/or :bookmarks      (spec/coll-of :offcourse/bookmark)
                                             :portraits      (spec/coll-of :offcourse/portrait)
                                             :github-repos   (spec/coll-of :github/repo)
-                                            :github-courses (spec/coll-of :github/course))))
+                                            :github-courses (spec/coll-of :github/course)
+                                            :unsupported    any?)))
 
   (defmethod action-spec :put [_]
-    (spec/tuple :offcourse/actions (spec/or :raw-resources      (spec/coll-of :embedly/resource)
-                                            :github-repos       (spec/coll-of :github/repo)
+    (spec/tuple :offcourse/actions (spec/or :github-repos       (spec/coll-of :github/repo)
                                             :github-courses     (spec/coll-of :github/course)
-                                            :raw-portraits      (spec/coll-of :raw/portrait)))))
+                                            :raw-resources      (spec/coll-of :embedly/resource)
+                                            :errors             (spec/coll-of :offcourse/error)
+                                            :raw-portraits      (spec/coll-of any?)
+                                            :nothing            nil?))))

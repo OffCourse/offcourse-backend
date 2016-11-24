@@ -9,28 +9,36 @@
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn mappings []
+
   (defmethod perform [:download :github-repos] [{:keys [github]} [_ payload]]
     (go
       (let [{:keys [found errors]} (async/<! (qa/fetch github payload))]
-        {:imported found :errors errors})))
+        {:imported (when-not (empty? found) found)
+         :error   (when-not (empty? errors) errors)})))
 
   (defmethod perform [:download :github-courses] [{:keys [github]} [_ payload]]
     (go
       (let [{:keys [found errors]} (async/<! (qa/fetch github payload))]
-        {:imported found :errors errors})))
+        {:imported (when-not (empty? found) found)
+         :error   (when-not (empty? errors) errors)})))
 
   (defmethod perform [:download :bookmarks] [{:keys [embedly]} [_ payload]]
     (go
       (let [urls (map :resource-url payload)
-            {:keys [found errors] :as res} (async/<! (qa/fetch embedly urls))]
-        {:imported found :errors errors})))
+            {:keys [found errors error] :as res} (async/<! (qa/fetch embedly urls))]
+        {:imported (when-not (empty? found) found)
+         :error   (if error error (when-not (empty? errors) errors))})))
 
   (defmethod perform [:download :portraits] [{:keys [http]} [_ payload]]
     (go
       (let [query {:urls (map :portrait-url payload)}
-            {:keys [found errors] :as res} (async/<! (qa/fetch http query))
+            {:keys [found errors]} (async/<! (qa/fetch http query))
             portraits (keep #(impl/create-portrait %1 payload) found)]
-        {:imported portraits :errors errors})))
+        {:imported (when-not (empty? portraits) portraits)
+         :error   (when-not (empty? errors) errors)})))
+
+  (defmethod perform [:download :unsupported] [_ [_ payload]]
+    (go {:error   :unsupported-payload}))
 
   (defmethod perform [:put :github-repos] [{:keys [bucket]} action]
     (ac/perform bucket (cv/to-bucket action)))
@@ -42,4 +50,10 @@
     (ac/perform bucket (cv/to-bucket action)))
 
   (defmethod perform [:put :raw-portraits] [{:keys [bucket stage]} action]
-    (ac/perform bucket (cv/to-bucket action))))
+    (ac/perform bucket (cv/to-bucket action)))
+
+  (defmethod perform [:put :nothing] [_ _]
+    (go {:error :no-payload}))
+
+  (defmethod perform [:put :errors] [_ [_ errors]]
+    (go errors)))

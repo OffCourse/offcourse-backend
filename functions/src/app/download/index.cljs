@@ -19,8 +19,8 @@
 
 (defn download [& args]
   (go
-    (let [{:keys [event] :as service}       (apply initialize-service args)
-          payload                           (cv/to-payload event)
-          {:keys [imported errors] :as res} (async/<! (ac/perform service [:download payload]))
-          res                               (async/<! (ac/perform service [:put imported]))]
-      (service/done service res))))
+    (let [{:keys [event] :as service} (apply initialize-service args)
+          payload                     (cv/to-payload event)
+          {:keys [imported error] :as r1}    (async/<! (ac/perform service [:download payload]))
+          {:keys [success error] :as r}     (async/<! (ac/perform service [:put imported]))]
+      (service/done service r1))))
