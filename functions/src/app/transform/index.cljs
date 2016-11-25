@@ -12,12 +12,21 @@
             [shared.protocols.actionable :as ac])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn transform [raw-event context cb]
-  (log/log raw-event)
+
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :transform
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:stream]}))
+
+(defn transform [& args]
   (go
-    (let [service   (service/create :transform cb [:stream] mappings specs/actions)
-          payload   (-> raw-event cv/to-payload)
-          payloads  (ac/perform service [:transform payload])
-          ops-chans (async/merge (map #(ac/perform service [:put %]) (vals payloads)))
-          res       (async/<! (async/into [] ops-chans))]
-      (service/done service payloads))))
+    (let [{:keys [event] :as service}   (apply initialize-service args)
+          payload                       (cv/to-payload event)
+          payloads                      (ac/perform service [:transform payload])
+          ops-chans                     (async/merge (map #(ac/perform service [:put %]) (vals payloads)))
+          res                           (async/<! (async/into [] ops-chans))]
+      (service/done service res))))

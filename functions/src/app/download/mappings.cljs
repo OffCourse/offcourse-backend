@@ -35,25 +35,16 @@
             {:keys [found errors]} (async/<! (qa/fetch http query))
             portraits (keep #(impl/create-portrait %1 payload) found)]
         {:imported (when-not (empty? portraits) portraits)
-         :error   (when-not (empty? errors) errors)})))
+         :error    (when-not (empty? errors) errors)})))
 
   (defmethod perform [:download :unsupported] [_ [_ payload]]
-    (go {:error   :unsupported-payload}))
-
-  (defmethod perform [:put :github-repos] [{:keys [bucket]} action]
-    (ac/perform bucket (cv/to-bucket action)))
-
-  (defmethod perform [:put :github-courses] [{:keys [bucket]} action]
-    (ac/perform bucket (cv/to-bucket action)))
-
-  (defmethod perform [:put :raw-resources] [{:keys [bucket]} action]
-    (ac/perform bucket (cv/to-bucket action)))
-
-  (defmethod perform [:put :raw-portraits] [{:keys [bucket stage]} action]
-    (ac/perform bucket (cv/to-bucket action)))
+    (go {:error :unsupported-payload}))
 
   (defmethod perform [:put :nothing] [_ _]
     (go {:error :no-payload}))
 
   (defmethod perform [:put :errors] [_ [_ errors]]
-    (go errors)))
+    (go errors))
+
+  (defmethod perform :default [{:keys [bucket stage]} action]
+    (ac/perform bucket (cv/to-bucket action))))

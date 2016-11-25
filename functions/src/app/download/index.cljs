@@ -21,6 +21,6 @@
   (go
     (let [{:keys [event] :as service} (apply initialize-service args)
           payload                     (cv/to-payload event)
-          {:keys [imported error] :as r1}    (async/<! (ac/perform service [:download payload]))
-          {:keys [success error] :as r}     (async/<! (ac/perform service [:put imported]))]
-      (service/done service r1))))
+          {:keys [imported error]}    (async/<! (ac/perform service [:download payload]))
+          {:keys [success error]}      (async/<! (ac/perform service [:put imported]))]
+      (service/done service (or success error)))))

@@ -3,6 +3,8 @@ provider:
   name: aws
   cfLogs: true
   runtime: nodejs4.3
+  environment:
+    serverlessStage: ${self:custom.envVars.serverlessStage}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -18,6 +20,7 @@ provider:
         -  kinesis:DescribeStream
         -  kinesis:ListStreams
       Resource: "*" 
+
 
 custom:
   kinesisBase: arn:aws:kinesis:us-east-1:774182433398:stream
@@ -122,6 +125,8 @@ functions:
           startingPosition: LATEST
   index:
     handler: functions/index.index
+    environment:
+      elasticsearchEndpoint: ${self:custom.envVars.elasticsearchEndpoint}
     events:
       - stream:
           arn: ${self:custom.dynamodbBase}/resources-${opt:stage}/stream/2016-11-01T20:58:43.405

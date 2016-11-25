@@ -22,10 +22,10 @@
 
 (defn save [& args]
   (go
-    (let [{:keys [event] :as service} (apply initialize-service args)
-          payload                     (cv/to-payload event)
-          {:keys [error success]}     (async/<! (ac/perform service [:put payload]))]
-      (when error
-        (service/fail service {:error error}))
-      (when success
-        (service/done service {:saved payload})))))
+    ((let [{:keys [event] :as service} (apply initialize-service args)
+           payload                     (cv/to-payload event)
+           {:keys [error success] :as r} (async/<! (ac/perform service [:put payload]))]
+       when error
+       (service/fail service {:error error})
+       (when success
+         (service/done service {:saved payload}))))))

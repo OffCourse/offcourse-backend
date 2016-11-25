@@ -8,10 +8,18 @@
             [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn index [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :index
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:index]}))
+
+(defn index [& args]
   (go
-    (let [service         (service/create :save cb [:index] mappings specs/actions)
-          {:keys [added]} (cv/to-events raw-event)
-          res             (when added (async/<! (ac/perform service [:put added])))]
+    (let [{:keys [event] :as service} (apply initialize-service args)
+          {:keys [added] :as events}  (cv/to-events event)
+          {:keys [success error] :as res}                         (when added (async/<! (ac/perform service [:put added])))]
       (service/done service res))))

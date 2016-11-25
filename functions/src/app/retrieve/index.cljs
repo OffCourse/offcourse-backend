@@ -1,19 +1,26 @@
 (ns app.retrieve.index
   (:require [app.retrieve.mappings :refer [mappings]]
+            [app.retrieve.specs :as specs]
             [backend-shared.service.index :as service]
-            [cljs.core.async :as async]
             [shared.protocols.convertible :as cv]
-            [shared.protocols.loggable :as log]
             [shared.protocols.queryable :as qa]
-            [shared.protocols.actionable :as ac]
-            [app.retrieve.specs :as specs])
+            [cljs.core.async :as async]
+            [shared.protocols.actionable :as ac])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(defn retrieve [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :retrieve
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:bucket :stream]}))
+
+(defn retrieve [& args]
   (go
-    (let [service         (service/create :retrieve cb [:bucket :stream] mappings specs/actions)
-          query           (cv/to-query raw-event)
-          {:keys [found]} (async/<! (qa/fetch service query))
-          res             (async/<! (ac/perform service [:put found]))]
-      (service/done service found))))
+    (let [{:keys [event] :as service} (apply initialize-service args)
+          query                       (cv/to-query event)
+          {:keys [found error]}       (async/<! (qa/fetch service query))
+          {:keys [success error]}     (async/<! (ac/perform service [:put found]))]
+      (service/done service (or success error)))))
