@@ -3,7 +3,7 @@
     "action-type": "sign-in"
   },
   "method": "POST",
-  "principalId": "offcourse|yeehaa",
+  "principalId": "github|1780358",
   "stage": "dev",
   "headers": {
     "Accept": "application/transit+json, application/transit+transit, application/json, text/plain, text/html, */*",

@@ -1,35 +1,38 @@
 (ns app.command.index
-  (:require [app.command.guest.index :as guest]
-            [app.command.user.index :as user]
-            [app.command.mappings :refer [mappings]]
-            [backend-shared.aws-event.index :as aws-event]
-            [cljs.nodejs :as node]
-            [clojure.string :as str]
-            [shared.protocols.loggable :as log]
-            [shared.protocols.convertible :as cv]
+  (:require [app.command.mappings :refer [mappings]]
+            [app.command.specs :as specs]
             [backend-shared.service.index :as service]
-            [shared.protocols.queryable :as qa]
-            [cljs.core.async :as async])
+            [cljs.core.async :as async]
+            [clojure.string :as str]
+            [shared.protocols.actionable :as ac]
+            [shared.protocols.convertible :as cv]
+            [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(node/enable-util-print!)
-
-(defn guest-or-user [service raw-event]
+(defn guest-or-user [service {:keys [principalId] :as event}]
   (go
-    (let [{:keys [principalId]} (aws-event/create raw-event)
-          [provider user-name]    (str/split principalId "|")
+    (let [[provider user-name]    (str/split principalId "|")
           {:keys [found]}       (when-not (= provider "offcourse")
                                   (async/<! (qa/fetch service {:auth-id principalId})))]
       (if (or (= provider "offcourse") (:user-name found))
         {:user {:user-name (or (-> found :user-name) user-name)}}
         {:guest {:auth-id principalId}}))))
 
-(defn command [raw-event context cb]
-  (log/log raw-event)
+(defn initialize-service [raw-event raw-context cb]
+  (service/initialize {:service-name :command
+                       :callback     cb
+                       :context      raw-context
+                       :specs        specs/actions
+                       :mappings     mappings
+                       :event        raw-event
+                       :adapters     [:db :stream :bucket]}))
+
+(defn command [& args]
   (go
-    (let [service              (service/create :command-portal cb [:db] mappings identity)
-          action               (cv/to-action raw-event)
-          {:keys [guest user]} (async/<! (guest-or-user service raw-event))]
-      (if user
-        (user/user-flow (with-meta action user) cb)
-        (guest/guest-flow (with-meta action guest) cb)))))
+    (let [{:keys [event callback] :as service} (apply initialize-service args)
+          action                               (cv/to-action event)
+          user                                 (async/<! (guest-or-user service event))
+          {:keys [accepted denied error]}      (async/<! (ac/perform service (with-meta action user)))]
+      (when denied    (service/unauthorized service denied))
+      (when accepted (service/accepted service accepted))
+      (service/fail service (or error "unknown-error")))))
