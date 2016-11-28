@@ -1,7 +1,6 @@
 (set-env!
  :resource-paths #{"src"}
- :checkouts     '[[offcourse/shared            "0.4.0-SNAPSHOT"]
-                  [offcourse/backend-shared    "0.1.0-SNAPSHOT"]]
+ :checkouts     '[[offcourse/backend-shared    "0.2.0-SNAPSHOT"]]
  :dependencies  '[[adzerk/boot-cljs            "1.7.228-1"      :scope "test"]
                   [adzerk/boot-cljs-repl       "0.3.3"          :scope "test"]
                   [adzerk/boot-reload          "0.4.12"          :scope "test"]
@@ -13,8 +12,8 @@
                   [org.clojure/test.check      "0.9.0"]
                   [org.clojure/clojurescript   "1.9.229"]
                   [com.cemerick/piggieback     "0.2.2-SNAPSHOT"          :scope "test"]
-                  [offcourse/shared            "0.4.0-SNAPSHOT"]
-                  [offcourse/backend-shared    "0.1.0-SNAPSHOT"]
+                  [offcourse/shared            "0.5.0"]
+                  [offcourse/backend-shared    "0.2.0-SNAPSHOT"]
                   [weasel                      "0.7.0"          :scope "test"]
                   [org.clojure/tools.nrepl     "0.2.12"         :scope "test"]])
 
