@@ -9,6 +9,7 @@
 (defn mappings []
 
   (defmethod fetch :identity [{:keys [db]} query]
+    (log/log "X " (clj->js query))
     (qa/fetch db (cv/to-db query)))
 
   (defmethod fetch :error [{:keys [db]} error]
