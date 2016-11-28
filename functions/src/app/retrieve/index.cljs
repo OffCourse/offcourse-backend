@@ -5,7 +5,8 @@
             [shared.protocols.convertible :as cv]
             [shared.protocols.queryable :as qa]
             [cljs.core.async :as async]
-            [shared.protocols.actionable :as ac])
+            [shared.protocols.actionable :as ac]
+            [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn initialize-service [raw-event raw-context cb]
@@ -21,6 +22,7 @@
   (go
     (let [{:keys [event] :as service} (apply initialize-service args)
           query                       (cv/to-query event)
-          {:keys [found error]}       (async/<! (qa/fetch service query))
+          {:keys [found error] :as s}       (async/<! (qa/fetch service query))
           {:keys [success error]}     (async/<! (ac/perform service [:put found]))]
+      (log/log "X" (clj->js s))
       (service/done service (or success error)))))

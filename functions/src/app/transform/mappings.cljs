@@ -7,7 +7,8 @@
             [cljs.nodejs :as node]
             [clojure.walk :as walk]
             [shared.models.course.index :as co]
-            [clojure.string :as clj-str]))
+            [clojure.string :as clj-str]
+            [shared.protocols.specced :as sp]))
 
 (def atob (node/require "atob"))
 (def yaml (node/require "js-yaml"))

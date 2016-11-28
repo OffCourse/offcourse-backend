@@ -29,5 +29,4 @@
                                             :raw-portraits      (spec/coll-of :offcourse/portrait)
                                             :identities         (spec/coll-of :offcourse/identity)
                                             :errors             (spec/coll-of :offcourse/error)
-                                            :raw-portraits      (spec/coll-of any?)
                                             :nothing            nil?))))
