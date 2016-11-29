@@ -20,6 +20,6 @@
 (defn index [& args]
   (go
     (let [{:keys [event] :as service}     (apply initialize-service args)
-          {:keys [added] :as events}      (cv/to-events event)
+          {:keys [added] :as events}      (cv/to-db-events event)
           {:keys [success error] :as res} (when added (async/<! (ac/perform service [:put added])))]
       (service/done service res))))

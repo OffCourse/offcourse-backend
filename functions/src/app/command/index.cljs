@@ -6,14 +6,16 @@
             [clojure.string :as str]
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
-            [shared.protocols.queryable :as qa])
+            [shared.protocols.queryable :as qa]
+            [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn guest-or-user [service {:keys [principalId] :as event}]
   (go
     (let [[provider user-name]    (str/split principalId "|")
-          {:keys [found]}       (when-not (= provider "offcourse")
-                                  (async/<! (qa/fetch service {:auth-id principalId})))]
+          {:keys [found] :as r}       (when-not (= provider "offcourse")
+                                        (async/<! (qa/fetch service {:auth-id principalId})))]
+      (log/log "X" (clj->js (async/<! (qa/fetch service {:auth-id principalId}))))
       (if (or (= provider "offcourse") (:user-name found))
         {:user {:user-name (or (-> found :user-name) user-name)}}
         {:guest {:auth-id principalId}}))))
