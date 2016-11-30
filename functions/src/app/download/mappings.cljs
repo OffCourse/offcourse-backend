@@ -5,7 +5,8 @@
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
             [shared.protocols.queryable :as qa]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.loggable :as log]
+            [shared.protocols.specced :as sp])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn mappings []
@@ -46,5 +47,7 @@
   (defmethod perform [:put :errors] [_ [_ errors]]
     (go errors))
 
-  (defmethod perform :default [{:keys [bucket stage]} action]
-    (ac/perform bucket (cv/to-bucket action))))
+  (defmethod perform :default [{:keys [bucket bucket-names]} action]
+    (let [payload-type (second (sp/resolve action))
+          bucket-name (payload-type bucket-names)]
+      (ac/perform bucket (cv/to-bucket action bucket-name)))))

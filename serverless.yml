@@ -30,6 +30,8 @@ custom:
 functions:
   command:
     handler: functions/index.command
+    environment:
+      identitiesTable: "identities-${opt:stage}"
     events:
       - http:
           path: command
@@ -50,6 +52,7 @@ functions:
   authorize:
     handler: functions/index.authorize
     environment:
+      identitiesTable: "identities-${opt:stage}"
       authSecret: ${self:custom.envVars.auth0Secret}
   retrieve:
     handler: functions/index.retrieve
@@ -89,6 +92,12 @@ functions:
           startingPosition: LATEST
   save:
     handler: functions/index.save
+    environment:
+      identitiesTable: "identities-${opt:stage}"
+      coursesTable: "courses-${opt:stage}"
+      resourcesTable: "resources-${opt:stage}"
+      profilesTable: "profiles-${opt:stage}"
+      bookmarksTable: "bookmarks-${opt:stage}"
     events:
       - stream: 
           arn: ${self:custom.kinesisBase}/profiles-${opt:stage}
@@ -108,8 +117,12 @@ functions:
   download:
     handler: functions/index.download
     environment:
-      embedlyApiKey: ${self:custom.envVars.embedlyApiKey}
-      githubApiKey: ${self:custom.envVars.githubApiKey}
+      embedlyApiKey:       ${self:custom.envVars.embedlyApiKey}
+      githubApiKey:        ${self:custom.envVars.githubApiKey}
+      resourcesBucket:     ${self:service}-resources-${opt:stage}
+      githubCoursesBucket: ${self:service}-github-courses-${opt:stage}
+      githubReposBucket:   ${self:service}-github-repos-${opt:stage}
+      assetsBucket:        ${self:service}-assets-${opt:stage}
     events:
       - stream: 
           arn: ${self:custom.kinesisBase}/bookmarks-${opt:stage}

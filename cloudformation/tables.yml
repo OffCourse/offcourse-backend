@@ -29,6 +29,8 @@ IdentitiesTable:
     StreamSpecification:
       StreamViewType: NEW_IMAGE
     TableName: identities-${opt:stage}
+IdentitiesTableName:
+  Ref: IdentitiesTable
 
 ProfilesTable:
   Type: AWS::DynamoDB::Table

@@ -15,5 +15,5 @@
                                             :github-courses     (spec/coll-of :github/course)
                                             :raw-resources      (spec/coll-of :embedly/resource)
                                             :errors             (spec/coll-of :offcourse/error)
-                                            :raw-portraits      (spec/coll-of any?)
+                                            :portraits          (spec/coll-of any?)
                                             :nothing            nil?))))

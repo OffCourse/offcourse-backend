@@ -32,8 +32,8 @@
 
 (defn mappings []
 
-  (defmethod fetch :identity [{:keys [db stage]} query]
-    (qa/fetch db (cv/to-db query)))
+  (defmethod fetch :identity [{:keys [db table-names]} query]
+    (qa/fetch db (cv/to-db query (:identities table-names))))
 
   (defmethod perform [:sign-up :raw-user :guest] [{:keys [bucket stage]} [_ user :as action]]
     (go

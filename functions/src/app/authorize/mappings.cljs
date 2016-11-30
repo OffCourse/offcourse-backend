@@ -8,8 +8,8 @@
 
 (defn mappings []
 
-  (defmethod fetch :identity [{:keys [db]} query]
-    (qa/fetch db (cv/to-db query)))
+  (defmethod fetch :identity [{:keys [db table-names]} query]
+    (qa/fetch db (cv/to-db query (:identities table-names))))
 
   (defmethod fetch :error [{:keys [db]} error]
     (go error))
