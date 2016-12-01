@@ -7,6 +7,4 @@
 
 (defn mappings []
   (defmethod perform :default [{:keys [db table-names]} action]
-    (let [payload-type (second (sp/resolve action))
-          table-name (payload-type table-names)]
-      (ac/perform db  (cv/to-db action table-name)))))
+    (ac/perform db  (cv/to-db action table-names))))

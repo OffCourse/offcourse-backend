@@ -21,4 +21,4 @@
       {:error :empty-payload}))
 
   (defmethod perform :default [{:keys [stream stage]} action]
-    (ac/perform stream (cv/to-stream action))))
+    (ac/perform stream action)))

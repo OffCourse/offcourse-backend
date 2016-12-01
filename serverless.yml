@@ -56,6 +56,12 @@ functions:
       authSecret: ${self:custom.envVars.auth0Secret}
   retrieve:
     handler: functions/index.retrieve
+    environment:
+      rawUsersStream: "raw-users-${opt:stage}"
+      coursesStream: "courses-${opt:stage}"
+      githubCoursesStream: "github-courses-${opt:stage}"
+      githubReposStream: "github-repo-${opt:stage}"
+      rawResourcesStream: "raw-resources-${opt:stage}"
     events:
       - s3:
           bucket: ${self:service}-resources-${opt:stage}

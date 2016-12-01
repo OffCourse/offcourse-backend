@@ -24,7 +24,7 @@
 
 (defn check-curator-and-repo [course repository user-name]
   (cond (not= "offcourse" (:repository course)) :not-repository
-        (not= user-name (:curator course))      :not-curator))
+        (not= user-name (:curator course)) :not-curator))
 
 (defn user-s3-item [user]
   {:item-key (:user-name user)
@@ -33,7 +33,7 @@
 (defn mappings []
 
   (defmethod fetch :identity [{:keys [db table-names]} query]
-    (qa/fetch db (cv/to-db query (:identities table-names))))
+    (qa/fetch db query))
 
   (defmethod perform [:sign-up :raw-user :guest] [{:keys [bucket stage]} [_ user :as action]]
     (go
