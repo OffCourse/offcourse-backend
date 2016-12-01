@@ -4,21 +4,21 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-11-12T00:02:01.172Z",
+            "eventTime": "2016-12-01T23:29:30.302Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_994_20161111210923492"
+                "principalId": "AWS:AIDAJJCLJJMUWGT2E435Y"
             },
             "requestParameters": {
-                "sourceIPAddress": "54.173.156.37"
+                "sourceIPAddress": "95.97.17.4"
             },
             "responseElements": {
-                "x-amz-request-id": "74DF13835C968E81",
-                "x-amz-id-2": "pcyU1omOYyKf8Ck/A9/mEmw/nj/G2p5yz6o8EJ9WY6sXkSpw0f1+uRfxG/PYhggcOtWFv81Mhsg="
+                "x-amz-request-id": "D7BE32AEEE31F134",
+                "x-amz-id-2": "LMPQKPlp53XXD9RMobocy4GIcEAueNDGrPqMMlLtXKpzwZIYneM99YlCodBrEM+q5HvRTCbIp2E="
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
-                "configurationId": "933bbb4e-3ed5-4793-a367-0ffbe66eca3c",
+                "configurationId": "1361179c-3675-4588-bd29-42d8cd5b4ba6",
                 "bucket": {
                     "name": "offcourse-github-courses-dev",
                     "ownerIdentity": {
@@ -27,10 +27,10 @@
                     "arn": "arn:aws:s3:::offcourse-github-courses-dev"
                 },
                 "object": {
-                    "key": "yeehaa/1a57408b98d1776aa5fa4a83e7cba89e920ed72a",
-                    "size": 1002,
-                    "eTag": "1eda54a1e002c352a41bba7f0cfa0ef9",
-                    "sequencer": "0058265BF922942D59"
+                    "key": "yeehaa/291a5f13ab5d7b124222d2b78d339cbc8c011d07",
+                    "size": 1084,
+                    "eTag": "85f2d10e936298d2202c5d5a2c7ba6f1",
+                    "sequencer": "005840B25A23484FBA"
                 }
             }
         }

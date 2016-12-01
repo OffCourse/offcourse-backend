@@ -91,7 +91,6 @@ GithubReposStream:
     Name: github-repos-${opt:stage}
     ShardCount: 1
 
-
 ErrorsStream:
   Type: AWS::Kinesis::Stream
   DependsOn: RawCoursesStream

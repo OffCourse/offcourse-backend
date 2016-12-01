@@ -4,21 +4,21 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-11-14T14:10:54.675Z",
+            "eventTime": "2016-12-01T23:21:24.563Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_30_20161114103722160"
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:offcourse-dev-download"
             },
             "requestParameters": {
-                "sourceIPAddress": "54.227.91.71"
+                "sourceIPAddress": "54.196.114.0"
             },
             "responseElements": {
-                "x-amz-request-id": "A628308DE228D0CE",
-                "x-amz-id-2": "tCsQYzlzfwPZVOa9IaVeFli0GsyvM7v3MdcQY4egYqgXK6Ptcx7LW6/GOMKbCJQXzOrkQTl+OYg="
+                "x-amz-request-id": "E2529DB64B3EBC24",
+                "x-amz-id-2": "EkwF4Uip8yD+VfLtsSYoKanEcVFiFCjvVYbb3Ck0UxzzXIOLDEZJpg7G9qyEQBdN"
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
-                "configurationId": "10b539c7-539c-4c3c-943e-80510edf3626",
+                "configurationId": "1fde1f23-dc35-4106-8e05-a8787d09390d",
                 "bucket": {
                     "name": "offcourse-github-repos-dev",
                     "ownerIdentity": {
@@ -30,7 +30,7 @@
                     "key": "yeehaa/7e2e5360ad885dbad6c2251ae216f149aaa72d54",
                     "size": 2144,
                     "eTag": "dfb0190103cfbb6703fa00a2ffeb697f",
-                    "sequencer": "005829C5EE92C21E3A"
+                    "sequencer": "005840B0747A8CEF6A"
                 }
             }
         }

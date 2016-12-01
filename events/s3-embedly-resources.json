@@ -4,21 +4,21 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-11-15T15:37:40.041Z",
+            "eventTime": "2016-12-01T23:00:12.893Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_722_20161115142350023"
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:offcourse-dev-download"
             },
             "requestParameters": {
-                "sourceIPAddress": "54.242.239.150"
+                "sourceIPAddress": "174.129.79.146"
             },
             "responseElements": {
-                "x-amz-request-id": "E333BD475CDA358B",
-                "x-amz-id-2": "b9Ln5Mo86jgzCKVQtzVYvxN3Q9NNGX4/5HEAhKHjEltK3AWn0ziV7FEkmqcCE9VHUqU4Fy5X8fU="
+                "x-amz-request-id": "23B7838DB83C9F8B",
+                "x-amz-id-2": "46SGUofdz9qajGtSE4+x+6sMm4+QyPAqE2NUjzbuppAzCAZNiBUr/Ttod8g6WFvGnl1GgTSz2+U="
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
-                "configurationId": "a47c9e07-7c59-49da-9a86-bf38f85335b9",
+                "configurationId": "304b4c64-dec9-4cbd-a3b9-df6d874b8b14",
                 "bucket": {
                     "name": "offcourse-resources-dev",
                     "ownerIdentity": {
@@ -27,10 +27,10 @@
                     "arn": "arn:aws:s3:::offcourse-resources-dev"
                 },
                 "object": {
-                    "key": "https---www.wired.com-2010-02-get_started_with_json-/embedly",
-                    "size": 10521,
-                    "eTag": "17e9c1ff0233efb61dd458c063ef67e4",
-                    "sequencer": "00582B2BC3F14C3B60"
+                    "key": "http---offcourse.io-/embedly",
+                    "size": 1655,
+                    "eTag": "23d3e4c0ae862e26247924a8725f445e",
+                    "sequencer": "005840AB7CBBA8B27E"
                 }
             }
         }

@@ -22,6 +22,6 @@
   (go
     (let [{:keys [event] :as service} (apply initialize-service args)
           query                       (cv/to-query event)
-          {:keys [found error] :as s} (async/<! (qa/fetch service query))
-          {:keys [success error]}     (async/<! (ac/perform service [:put found]))]
-      (service/done service (or success error)))))
+          {:keys [found error]}       (async/<! (qa/fetch service query))
+          {:keys [accepted error]}    (async/<! (ac/perform service [:put found]))]
+      (service/done service (or accepted error)))))

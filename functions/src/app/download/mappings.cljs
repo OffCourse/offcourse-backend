@@ -11,7 +11,7 @@
 
 (defn mappings []
 
-  (defmethod perform [:download :github-repos] [{:keys [github]} [_ payload]]
+  (defmethod perform [:download :raw-repos] [{:keys [github]} [_ payload]]
     (go
       (let [{:keys [found errors]} (async/<! (qa/fetch github payload))]
         {:imported (when-not (empty? found) found)
@@ -47,7 +47,5 @@
   (defmethod perform [:put :errors] [_ [_ errors]]
     (go errors))
 
-  (defmethod perform :default [{:keys [bucket bucket-names]} action]
-    (let [payload-type (second (sp/resolve action))
-          bucket-name (payload-type bucket-names)]
-      (ac/perform bucket (cv/to-bucket action bucket-name)))))
+  (defmethod perform :default [{:keys [bucket]} action]
+    (ac/perform bucket action)))

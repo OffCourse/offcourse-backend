@@ -4,21 +4,21 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-11-03T22:09:50.037Z",
+            "eventTime": "2016-12-01T23:02:12.062Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:awslambda_0_20161103194450697"
+                "principalId": "AWS:AIDAJJCLJJMUWGT2E435Y"
             },
             "requestParameters": {
-                "sourceIPAddress": "54.163.137.23"
+                "sourceIPAddress": "95.97.17.4"
             },
             "responseElements": {
-                "x-amz-request-id": "081308203A6A34F5",
-                "x-amz-id-2": "0afgn9kHDvDRriRfuvgwsHMIaHAR8AXtIuNVvrixeE5sZRiIweDmOMJnY/y/5pCLbPGTTJEajHo="
+                "x-amz-request-id": "3FC54A7B3AC4701D",
+                "x-amz-id-2": "cZNfGP3+pzXQfzaOTvjxQhSwt3Uuv13P2r+utwgAbhPCQgO16YuzzFj/Xo1fpRhCUkDf1S2JpME="
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
-                "configurationId": "4bedfd71-7ff4-4e9a-ae6a-66e3cc6b08a3",
+                "configurationId": "3a27c90a-c19c-470c-b948-7d33bff5122f",
                 "bucket": {
                     "name": "offcourse-raw-users-dev",
                     "ownerIdentity": {
@@ -27,10 +27,10 @@
                     "arn": "arn:aws:s3:::offcourse-raw-users-dev"
                 },
                 "object": {
-                    "key": "napoleon",
-                    "size": 468,
-                    "eTag": "e3956947818d6edf2a9a1ba967f52721",
-                    "sequencer": "00581BB5ADF33A45CE"
+                    "key": "yeehaa",
+                    "size": 438,
+                    "eTag": "82e2cf143fb05d1f1ea73d1df0efda33",
+                    "sequencer": "005840ABF402DDDA6C"
                 }
             }
         }

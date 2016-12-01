@@ -77,7 +77,7 @@ functions:
           bucket: ${self:service}-raw-users-${opt:stage}
           event:  s3:ObjectCreated:*
       - s3:
-          bucket: ${self:service}-courses-${opt:stage}
+          bucket: ${self:service}-raw-courses-${opt:stage}
           event:  s3:ObjectCreated:*
       - s3:
           bucket: ${self:service}-github-repos-${opt:stage}
@@ -91,6 +91,7 @@ functions:
     environment:
       bookmarksStream: "bookmarks-${opt:stage}"
       coursesStream: "courses-${opt:stage}"
+      rawGithubCoursesStream: "raw-github-courses-${opt:stage}"
       resourcesStream: "resources-${opt:stage}"
       profilesStream: "profiles-${opt:stage}"
       rawPortraitsStream: "raw-portraits-${opt:stage}"

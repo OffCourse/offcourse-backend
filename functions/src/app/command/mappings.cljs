@@ -51,7 +51,6 @@
       {:denied "user already exists"}))
 
   (defmethod perform [:import :raw-repo :user] [{:keys [stream]} [_ repo :as action]]
-    (log/log "X" (clj->js repo))
     (let [user-name (-> action meta :user :user-name)]
       (ac/perform stream [:put [(assoc repo :user-name user-name)]])))
 
@@ -62,7 +61,7 @@
           (log/log "error" error)
           {:denied (error messages/errors)})
         (do
-          (async/<! (ac/perform bucket (cv/to-bucket [:put [course]])))
+          (async/<! (ac/perform bucket [:put [course]]))
           {:accepted course}))))
 
   (defmethod perform :default [{:keys [stream stage]} action]

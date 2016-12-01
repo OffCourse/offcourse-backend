@@ -5,7 +5,8 @@
             [cljs.core.async :as async]
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.loggable :as log]
+            [shared.protocols.specced :as sp])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn initialize-service [raw-event raw-context cb]
@@ -22,5 +23,5 @@
     (let [{:keys [event] :as service} (apply initialize-service args)
           payload                     (cv/to-payload event)
           {:keys [imported error]}    (async/<! (ac/perform service [:download payload]))
-          {:keys [success error]}      (async/<! (ac/perform service [:put imported]))]
-      (service/done service (or success error)))))
+          {:keys [success error]}     (async/<! (ac/perform service [:put imported]))]
+      (service/done service imported #_(or success error)))))
