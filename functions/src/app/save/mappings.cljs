@@ -7,4 +7,4 @@
 
 (defn mappings []
   (defmethod perform :default [{:keys [db table-names]} action]
-    (ac/perform db  (cv/to-db action table-names))))
+    (ac/perform db action)))

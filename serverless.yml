@@ -31,7 +31,10 @@ functions:
   command:
     handler: functions/index.command
     environment:
+      rawCoursesBucket: ${self:service}-raw-courses-${opt:stage}
+      rawUsersBucket: ${self:service}-raw-users-${opt:stage}
       identitiesTable: "identities-${opt:stage}"
+      rawReposStream: "raw-github-repos-${opt:stage}"
     events:
       - http:
           path: command
@@ -39,6 +42,7 @@ functions:
           cors: true
           integration: lambda
           authorizer: authorize
+
   query:
     handler: functions/index.query
     environment:
@@ -49,18 +53,20 @@ functions:
           method: post
           cors: true
           integration: lambda
+
   authorize:
     handler: functions/index.authorize
     environment:
-      identitiesTable: "identities-${opt:stage}"
-      authSecret: ${self:custom.envVars.auth0Secret}
+     identitiesTable: "identities-${opt:stage}"
+     authSecret: ${self:custom.envVars.auth0Secret}
+
   retrieve:
     handler: functions/index.retrieve
     environment:
       rawUsersStream: "raw-users-${opt:stage}"
       coursesStream: "courses-${opt:stage}"
       githubCoursesStream: "github-courses-${opt:stage}"
-      githubReposStream: "github-repo-${opt:stage}"
+      githubReposStream: "github-repos-${opt:stage}"
       rawResourcesStream: "raw-resources-${opt:stage}"
       errorsStream: "errors-${opt:stage}"
     events:
@@ -79,8 +85,17 @@ functions:
       - s3:
           bucket: ${self:service}-github-courses-${opt:stage}
           event:  s3:ObjectCreated:*
+
   transform:
     handler: functions/index.transform
+    environment:
+      bookmarksStream: "bookmarks-${opt:stage}"
+      coursesStream: "courses-${opt:stage}"
+      resourcesStream: "resources-${opt:stage}"
+      profilesStream: "profiles-${opt:stage}"
+      rawPortraitsStream: "raw-portraits-${opt:stage}"
+      identitiesStream: "identities-${opt:stage}"
+      errorsStream: "errors-${opt:stage}"
     events:
       - stream: 
           arn: ${self:custom.kinesisBase}/raw-resources-${opt:stage}
@@ -97,6 +112,7 @@ functions:
       - stream:
           arn: ${self:custom.kinesisBase}/github-courses-${opt:stage}
           startingPosition: LATEST
+
   save:
     handler: functions/index.save
     environment:
@@ -121,6 +137,7 @@ functions:
       - stream: 
           arn: ${self:custom.kinesisBase}/resources-${opt:stage}
           startingPosition: LATEST
+
   download:
     handler: functions/index.download
     environment:
@@ -143,6 +160,7 @@ functions:
       - stream:
           arn: ${self:custom.kinesisBase}/raw-portraits-${opt:stage}
           startingPosition: LATEST
+
   index:
     handler: functions/index.index
     environment:

@@ -26,10 +26,6 @@
   (cond (not= "offcourse" (:repository course)) :not-repository
         (not= user-name (:curator course)) :not-curator))
 
-(defn user-s3-item [user]
-  {:item-key (:user-name user)
-   :item-data (->> user clj->js (.stringify js/JSON))})
-
 (defn mappings []
 
   (defmethod fetch :identity [{:keys [db table-names]} query]
@@ -40,7 +36,7 @@
       (if-let [error (check-auth user (-> action meta :guest :auth-id))]
         {:denied (error messages/errors)}
         (do
-          (async/<! (ac/perform bucket (cv/to-bucket [:put [user]])))
+          (async/<! (ac/perform bucket [:put [user]]))
           {:accepted user}))))
 
   (defmethod perform [:sign-in nil :guest] [{:keys [stream stage]} action]
@@ -54,9 +50,10 @@
     (go
       {:denied "user already exists"}))
 
-  (defmethod perform [:import :github-repo :user] [{:keys [stream]} [_ repo :as action]]
+  (defmethod perform [:import :raw-repo :user] [{:keys [stream]} [_ repo :as action]]
+    (log/log "X" (clj->js repo))
     (let [user-name (-> action meta :user :user-name)]
-      (ac/perform stream (cv/to-stream [:put [(assoc repo :user-name user-name)]]))))
+      (ac/perform stream [:put [(assoc repo :user-name user-name)]])))
 
   (defmethod perform [:add :course :user] [{:keys [bucket]} [_ course :as action]]
     (go

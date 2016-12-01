@@ -15,7 +15,6 @@
     (let [[provider user-name]    (str/split principalId "|")
           {:keys [found] :as r}       (when-not (= provider "offcourse")
                                         (async/<! (qa/fetch service {:auth-id principalId})))]
-      (log/log "X" (clj->js (async/<! (qa/fetch service {:auth-id principalId}))))
       (if (or (= provider "offcourse") (:user-name found))
         {:user {:user-name (or (-> found :user-name) user-name)}}
         {:guest {:auth-id principalId}}))))

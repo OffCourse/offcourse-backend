@@ -41,10 +41,10 @@
      :identities (mapcat impl/to-identities payload)})
 
   (defmethod perform [:transform :github-repos] [_ [_ payload]]
-    {:github-repos (mapcat to-courses payload)})
+    {:repos (mapcat to-courses payload)})
 
   (defmethod perform [:transform :github-courses] [_ [_ payload]]
-    {:github-courses (map handle-content payload)})
+    {:courses (map handle-content payload)})
 
   (defmethod perform [:transform :embedly] [_ [_ raw-resources]]
     (let [converted (keep impl/to-resource raw-resources)]
@@ -55,7 +55,5 @@
   (defmethod perform [:transform :courses] [_ [_ courses]]
     {:bookmarks (mapcat impl/to-bookmark courses)})
 
-  (defmethod perform :default [{:keys [service-name stream stage]} action]
-    (ac/perform stream
-                (cv/to-stream (with-meta action {:service-name service-name
-                                                 :stage stage})))))
+  (defmethod perform :default [{:keys [stream]} action]
+    (ac/perform stream action)))

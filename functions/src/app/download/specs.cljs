@@ -3,6 +3,7 @@
             [shared.specs.action :as action :refer [action-spec]]))
 
 (defn actions []
+
   (defmethod action-spec :download [_]
     (spec/tuple :offcourse/actions (spec/or :bookmarks      (spec/coll-of :offcourse/bookmark)
                                             :portraits      (spec/coll-of :offcourse/portrait)
