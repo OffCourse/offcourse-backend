@@ -62,6 +62,7 @@ functions:
       githubCoursesStream: "github-courses-${opt:stage}"
       githubReposStream: "github-repo-${opt:stage}"
       rawResourcesStream: "raw-resources-${opt:stage}"
+      errorsStream: "errors-${opt:stage}"
     events:
       - s3:
           bucket: ${self:service}-resources-${opt:stage}

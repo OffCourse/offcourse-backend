@@ -4,6 +4,8 @@
 
 (defn actions []
 
+  (spec/def :offcourse/query   (spec/or :bucket-items   (spec/coll-of :aws/bucket-item-query)))
+
   (spec/def :offcourse/payload (spec/or :courses        (spec/coll-of :raw/course)
                                         :raw-resources  (spec/coll-of :embedly/resource)
                                         :github-courses (spec/coll-of :github/course)
