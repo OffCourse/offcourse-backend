@@ -9,7 +9,7 @@
 
 (defn handle-request [index index-name query single]
   (go
-    (let [request (qa/fetch index index-name (cv/to-search query))
+    (let [request (qa/fetch index #_index-name query)
           {:keys [found] :as res} (async/<! request)]
       (if-not (empty? found)
         (assoc res :found (if single (first found) found))
