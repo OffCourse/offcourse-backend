@@ -9,9 +9,22 @@
             [app.transform.mappings :refer [mappings]]
             [backend-shared.service.index :as service]
             [cljs.core.async :as async]
-            [shared.protocols.actionable :as ac])
+            [shared.protocols.actionable :as ac]
+            [cljs.spec :as spec]
+            [shared.models.payload.index :as payload])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(def stream-names {:bookmarks          (.. js/process -env -bookmarksStream)
+                   :courses            (.. js/process -env -coursesStream)
+                   :resources          (.. js/process -env -resourcesStream)
+                   :identities         (.. js/process -env -identitiesStream)
+                   :profiles           (.. js/process -env -profilesStream)
+                   :raw-portraits      (.. js/process -env -rawPortraitsStream)
+                   :errors             (.. js/process -env -errorsStream)
+                   :raw-github-courses (.. js/process -env -rawGithubCoursesStream)
+                   :raw-repos          (.. js/process -env -rawReposStream)})
+
+(def environment {:stream-names stream-names})
 
 (defn initialize-service [raw-event raw-context cb]
   (service/initialize {:service-name :transform
@@ -19,6 +32,7 @@
                        :context      raw-context
                        :specs        specs/actions
                        :mappings     mappings
+                       :environment  environment
                        :event        raw-event
                        :adapters     [:stream]}))
 

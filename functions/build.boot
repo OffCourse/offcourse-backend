@@ -12,7 +12,7 @@
                   [org.clojure/test.check      "0.9.0"]
                   [org.clojure/clojurescript   "1.9.229"]
                   [com.cemerick/piggieback     "0.2.2-SNAPSHOT"          :scope "test"]
-                  [offcourse/shared            "0.5.4"]
+                  [offcourse/shared            "0.5.6"]
                   [offcourse/backend-shared    "0.2.0-SNAPSHOT"]
                   [weasel                      "0.7.0"          :scope "test"]
                   [org.clojure/tools.nrepl     "0.2.12"         :scope "test"]])

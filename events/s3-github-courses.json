@@ -4,33 +4,33 @@
             "eventVersion": "2.0",
             "eventSource": "aws:s3",
             "awsRegion": "us-east-1",
-            "eventTime": "2016-12-01T23:29:30.302Z",
+            "eventTime": "2016-12-01T23:21:24.563Z",
             "eventName": "ObjectCreated:Put",
             "userIdentity": {
-                "principalId": "AWS:AIDAJJCLJJMUWGT2E435Y"
+                "principalId": "AWS:AROAJDRJLTMKHRIKNK36G:offcourse-dev-download"
             },
             "requestParameters": {
-                "sourceIPAddress": "95.97.17.4"
+                "sourceIPAddress": "54.196.114.0"
             },
             "responseElements": {
-                "x-amz-request-id": "D7BE32AEEE31F134",
-                "x-amz-id-2": "LMPQKPlp53XXD9RMobocy4GIcEAueNDGrPqMMlLtXKpzwZIYneM99YlCodBrEM+q5HvRTCbIp2E="
+                "x-amz-request-id": "E2529DB64B3EBC24",
+                "x-amz-id-2": "EkwF4Uip8yD+VfLtsSYoKanEcVFiFCjvVYbb3Ck0UxzzXIOLDEZJpg7G9qyEQBdN"
             },
             "s3": {
                 "s3SchemaVersion": "1.0",
-                "configurationId": "1361179c-3675-4588-bd29-42d8cd5b4ba6",
+                "configurationId": "1fde1f23-dc35-4106-8e05-a8787d09390d",
                 "bucket": {
-                    "name": "offcourse-github-courses-dev",
+                    "name": "offcourse-github-repos-dev",
                     "ownerIdentity": {
                         "principalId": "A2G8O26WW05BHB"
                     },
-                    "arn": "arn:aws:s3:::offcourse-github-courses-dev"
+                    "arn": "arn:aws:s3:::offcourse-github-repos-dev"
                 },
                 "object": {
-                    "key": "yeehaa/291a5f13ab5d7b124222d2b78d339cbc8c011d07",
-                    "size": 1084,
-                    "eTag": "85f2d10e936298d2202c5d5a2c7ba6f1",
-                    "sequencer": "005840B25A23484FBA"
+                    "key": "yeehaa/7e2e5360ad885dbad6c2251ae216f149aaa72d54",
+                    "size": 2144,
+                    "eTag": "dfb0190103cfbb6703fa00a2ffeb697f",
+                    "sequencer": "005840B0747A8CEF6A"
                 }
             }
         }

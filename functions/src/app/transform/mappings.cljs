@@ -44,7 +44,11 @@
     {:repos (mapcat to-courses payload)})
 
   (defmethod perform [:transform :github-courses] [_ [_ payload]]
-    {:courses (map handle-content payload)})
+    (let [courses (map handle-content payload)
+          errors  (remove true? (map sp/valid? courses))]
+      (if (empty? errors)
+        {:courses (map handle-content payload)}
+        {:errors [{:error (sp/errors courses)}]})))
 
   (defmethod perform [:transform :embedly] [_ [_ raw-resources]]
     (let [converted (keep impl/to-resource raw-resources)]
@@ -56,4 +60,5 @@
     {:bookmarks (mapcat impl/to-bookmark courses)})
 
   (defmethod perform :default [{:keys [stream]} action]
+    (log/log "X" (clj->js action))
     (ac/perform stream action)))

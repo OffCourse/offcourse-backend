@@ -16,11 +16,11 @@
                                             :github-repos      (spec/coll-of :github/repo)
                                             :github-courses    (spec/coll-of :github/course)
                                             :courses           (spec/coll-of :offcourse/course)
-                                            :raw-users         (spec/coll-of :raw/user)
-                                            :raw-courses       (spec/coll-of :raw/course))))
+                                            :raw-users         (spec/coll-of :raw/user))))
 
   (defmethod action-spec :put [_]
     (spec/tuple :offcourse/actions (spec/or :bookmarks          (spec/coll-of :offcourse/bookmark)
+                                            :courses            (spec/coll-of :offcourse/course)
                                             :raw-github-courses (spec/coll-of :raw/github-course)
                                             :resources          (spec/coll-of :offcourse/resource)
                                             :profiles           (spec/coll-of :offcourse/profile)

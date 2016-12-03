@@ -4,7 +4,6 @@ exports.command = db_out.app.core.command;
 exports.authorize = db_out.app.core.authorize;
 exports.query = db_out.app.core.query;
 exports.transform = db_out.app.core.transform;
-exports.filter = db_out.app.core.filter;
 exports.download = db_out.app.core.download;
 exports.split = db_out.app.core.split;
 exports.retrieve = db_out.app.core.retrieve;

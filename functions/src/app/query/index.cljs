@@ -9,6 +9,8 @@
             [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(def environment {:search-url (.. js/process -env -elasticsearchEndpoint)})
+
 (defn initialize-service [raw-event raw-context cb]
   (service/initialize {:service-name :query
                        :callback     cb
@@ -16,6 +18,7 @@
                        :specs        specs/actions
                        :mappings     mappings
                        :event        raw-event
+                       :environment  environment
                        :adapters     [:index]}))
 
 (defn query [& args]

@@ -9,6 +9,15 @@
             [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(def stream-names {:raw-users          (.. js/process -env -rawUsersStream)
+                   :courses            (.. js/process -env -coursesStream)
+                   :raw-resources      (.. js/process -env -rawResourcesStream)
+                   :github-repos       (.. js/process -env -githubReposStream)
+                   :errors             (.. js/process -env -errorsStream)
+                   :github-courses     (.. js/process -env -githubCoursesStream)})
+
+(def environment {:stream-names stream-names})
+
 (defn initialize-service [raw-event raw-context cb]
   (service/initialize {:service-name :retrieve
                        :callback     cb
@@ -16,6 +25,7 @@
                        :specs        specs/actions
                        :mappings     mappings
                        :event        raw-event
+                       :environment  environment
                        :adapters     [:bucket :stream]}))
 
 (defn retrieve [& args]

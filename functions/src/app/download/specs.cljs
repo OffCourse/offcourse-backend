@@ -8,7 +8,7 @@
     (spec/tuple :offcourse/actions (spec/or :bookmarks      (spec/coll-of :offcourse/bookmark)
                                             :portraits      (spec/coll-of :offcourse/portrait)
                                             :raw-repos      (spec/coll-of :raw/repo)
-                                            :github-courses (spec/coll-of :github/course)
+                                            :github-courses (spec/coll-of :raw/github-course)
                                             :unsupported    any?)))
 
   (defmethod action-spec :put [_]

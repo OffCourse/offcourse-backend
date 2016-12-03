@@ -8,6 +8,8 @@
             [shared.protocols.loggable :as log])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
+(def environment {:search-url (.. js/process -env -elasticsearchEndpoint)})
+
 (defn initialize-service [raw-event raw-context cb]
   (service/initialize {:service-name :index
                        :callback     cb
@@ -15,6 +17,7 @@
                        :specs        specs/actions
                        :mappings     mappings
                        :event        raw-event
+                       :environment  environment
                        :adapters     [:index]}))
 
 (defn index [& args]
