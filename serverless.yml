@@ -47,6 +47,7 @@ functions:
     handler: functions/index.query
     environment:
       elasticsearchEndpoint: ${self:custom.envVars.elasticsearchEndpoint}
+      resourcesTable: "resources-${opt:stage}"
     events:
       - http:
           path: query

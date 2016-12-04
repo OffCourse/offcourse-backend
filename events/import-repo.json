@@ -45,9 +45,9 @@
   "body": {
       "action-type": "import",
       "payload": {
-          "name":  "basicwebdev_3",
+          "name":  "html-css-javascript",
           "owner": "offcourse",
-          "sha":   "7e2e5360ad885dbad6c2251ae216f149aaa72d54"
+          "sha":   "a536adef54e0fff0471dedc54f8ff338162c8c29"
       }
   }
 }

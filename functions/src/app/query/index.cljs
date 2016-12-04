@@ -7,7 +7,8 @@
             [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(def adapters {:index {:search-url (.. js/process -env -elasticsearchEndpoint)}})
+(def adapters {:index {:search-url (.. js/process -env -elasticsearchEndpoint)}
+               :db    {:table-names {:resource (.. js/process -env -resourcesTable)}}})
 
 (defn query [& args]
   (go
