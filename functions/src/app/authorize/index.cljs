@@ -5,8 +5,7 @@
             [cljs.core.async :as async]
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
-            [shared.protocols.queryable :as qa]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (def adapters {:db   {:table-names {:identity (.. js/process -env -identitiesTable)}}

@@ -5,6 +5,8 @@
 
 (defn specs []
 
+  (spec/def :offcourse/query   (spec/or :identity :query/identity))
+
   (defmethod action-spec :verify [_]
     (spec/tuple :offcourse/actions (spec/or :credentials :aws/credentials)))
 

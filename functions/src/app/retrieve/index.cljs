@@ -1,36 +1,24 @@
 (ns app.retrieve.index
   (:require [app.retrieve.mappings :refer [mappings]]
-            [app.retrieve.specs :as specs]
+            [app.retrieve.specs :refer [specs]]
             [backend-shared.service.index :as service]
-            [shared.protocols.convertible :as cv]
-            [shared.protocols.queryable :as qa]
             [cljs.core.async :as async]
             [shared.protocols.actionable :as ac]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.convertible :as cv]
+            [shared.protocols.queryable :as qa])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(def stream-names {:raw-users          (.. js/process -env -rawUsersStream)
-                   :courses            (.. js/process -env -coursesStream)
-                   :raw-resources      (.. js/process -env -rawResourcesStream)
-                   :github-repos       (.. js/process -env -githubReposStream)
-                   :errors             (.. js/process -env -errorsStream)
-                   :github-courses     (.. js/process -env -githubCoursesStream)})
-
-(def environment {:stream-names stream-names})
-
-(defn initialize-service [raw-event raw-context cb]
-  (service/initialize {:service-name :retrieve
-                       :callback     cb
-                       :context      raw-context
-                       :specs        specs/actions
-                       :mappings     mappings
-                       :event        raw-event
-                       :environment  environment
-                       :adapters     [:bucket :stream]}))
+(def adapters {:stream {:stream-names {:raw-users          (.. js/process -env -rawUsersStream)
+                                       :courses            (.. js/process -env -coursesStream)
+                                       :raw-resources      (.. js/process -env -rawResourcesStream)
+                                       :github-repos       (.. js/process -env -githubReposStream)
+                                       :github-courses     (.. js/process -env -githubCoursesStream)
+                                       :errors             (.. js/process -env -errorsStream)}}
+               :bucket {:bucket-names {}}})
 
 (defn retrieve [& args]
   (go
-    (let [{:keys [event] :as service} (apply initialize-service args)
+    (let [{:keys [event] :as service} (apply service/create specs mappings adapters args)
           query                       (cv/to-query event)
           {:keys [found error]}       (async/<! (qa/fetch service query))
           {:keys [accepted error]}    (async/<! (ac/perform service [:put found]))]
