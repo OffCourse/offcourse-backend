@@ -3,7 +3,7 @@
             [backend-shared.specs.index]
             [shared.specs.action :refer [action-spec]]))
 
-(defn actions []
+(defn specs []
 
   (defmethod action-spec :verify [_]
     (spec/tuple :offcourse/actions (spec/or :credentials :aws/credentials)))

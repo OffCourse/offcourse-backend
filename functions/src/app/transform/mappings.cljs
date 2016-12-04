@@ -60,5 +60,4 @@
     {:bookmarks (mapcat impl/to-bookmark courses)})
 
   (defmethod perform :default [{:keys [stream]} action]
-    (log/log "X" (clj->js action))
     (ac/perform stream action)))
