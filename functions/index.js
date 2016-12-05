@@ -9,6 +9,7 @@ exports.split = db_out.app.core.split;
 exports.retrieve = db_out.app.core.retrieve;
 exports.save = db_out.app.core.save;
 exports.index = db_out.app.core.index;
+exports.augment = db_out.app.core.augment;
 exports.debug = db_out.app.core.debug;
 exports.dump = db_out.app.core.dump;
 exports.combine = db_out.app.core.combine;

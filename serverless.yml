@@ -11,6 +11,7 @@ provider:
         -  dynamodb:GetItem
         -  dynamodb:BatchGetItem
         -  dynamodb:PutItem
+        -  dynamodb:query
         -  dynamodb:Scan
         -  s3:PutObject
         -  s3:GetObject
@@ -42,6 +43,11 @@ functions:
           cors: true
           integration: lambda
           authorizer: authorize
+
+  augment:
+    handler: functions/index.augment
+    environment:
+      bookmarksTable: "bookmarks-${opt:stage}"
 
   query:
     handler: functions/index.query

@@ -3,12 +3,13 @@
             [shared.protocols.actionable :as ac]
             [shared.protocols.convertible :as cv]
             [shared.protocols.queryable :as qa]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.loggable :as log]
+            [cljs.core.async :as async])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn mappings []
 
-  (defmethod fetch :identity [{:keys [db]} query]
+  (defmethod fetch :identity [{:keys [db table-names]} query]
     (qa/fetch db query))
 
   (defmethod fetch :error [{:keys [db]} error]

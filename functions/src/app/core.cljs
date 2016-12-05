@@ -4,6 +4,7 @@
             [backend-shared.index]
             [app.query.index :as query]
             [app.transform.index :as transform]
+            [app.augment.index :as augment]
             [app.command.index :as command]
             [app.retrieve.index :as retrieve]
             [app.index.index :as index]
@@ -21,6 +22,7 @@
 (def ^:export download download/download)
 (def ^:export save save/save)
 (def ^:export index index/index)
+(def ^:export augment augment/augment)
 (def ^:export debug debug/debug)
 (def ^:export retrieve retrieve/retrieve)
 

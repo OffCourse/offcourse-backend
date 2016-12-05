@@ -23,4 +23,4 @@
     (handle-request index query true))
 
   (defmethod fetch :resource [{:keys [db stage]} query]
-    (go (async/<! (qa/fetch db query)))))
+    (qa/fetch db query)))
