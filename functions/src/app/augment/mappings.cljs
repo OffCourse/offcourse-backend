@@ -2,14 +2,26 @@
   (:require [backend-shared.service.index :refer [perform fetch]]
             [shared.protocols.actionable :as ac]
             [shared.protocols.queryable :as qa]
-            [shared.protocols.loggable :as log])
+            [shared.protocols.loggable :as log]
+            [cljs.core.async :as async]
+            [clojure.string :as str])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (defn mappings []
 
+  (defn to-course-query [{:keys [offcourse-id]}]
+    (let [[repo curator course-id revision checkpoint-id] (str/split offcourse-id "::")]
+      {:course-id (str repo "::" curator "::" course-id)
+       :checkpoint-id checkpoint-id
+       :revision revision}))
+
   (defmethod fetch :bookmarks [{:keys [db]} payload]
-    (let [query (map (fn [{:keys [bookmark-url]}] {:resource-url bookmark-url}) payload)]
-      (qa/fetch db query)))
+    (go
+      (let [bookmarks-query (map (fn [{:keys [bookmark-url]}] {:resource-url bookmark-url}) payload)
+            {:keys [found]} (async/<! (qa/fetch db bookmarks-query))
+            courses-query   (map to-course-query found)
+            {:keys [found]} (async/<! (qa/fetch db courses-query))]
+        found)))
 
   (defmethod perform [:put :nothing] [_ _]
     (go {:error :no-payload}))
