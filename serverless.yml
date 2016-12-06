@@ -48,6 +48,7 @@ functions:
     handler: functions/index.augment
     environment:
       bookmarksTable: "bookmarks-${opt:stage}"
+      coursesTable: "courses-${opt:stage}"
 
   query:
     handler: functions/index.query

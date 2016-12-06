@@ -9,19 +9,24 @@
 
 (defn mappings []
 
-  (defn to-course-query [{:keys [offcourse-id]}]
+  (defn to-course-query [{:keys [offcourse-id] :as bm}]
     (let [[repo curator course-id revision checkpoint-id] (str/split offcourse-id "::")]
       {:course-id (str repo "::" curator "::" course-id)
-       :checkpoint-id checkpoint-id
-       :revision revision}))
+       :revision (int revision)}))
 
-  (defmethod fetch :bookmarks [{:keys [db]} payload]
+  (defmethod fetch :bookmarks [{:keys [db]} resources]
     (go
-      (let [bookmarks-query (map (fn [{:keys [bookmark-url]}] {:resource-url bookmark-url}) payload)
-            {:keys [found]} (async/<! (qa/fetch db bookmarks-query))
-            courses-query   (map to-course-query found)
-            {:keys [found]} (async/<! (qa/fetch db courses-query))]
-        found)))
+      (let [bookmarks-res   (async/<! (qa/fetch db resources))
+            bookmarks       (:found bookmarks-res)
+            courses-query   (map to-course-query bookmarks)
+            courses-res     (async/<! (qa/fetch db courses-query))
+            courses         (:found courses-res)
+            errors          (mapcat :errors [courses-res bookmarks-res])]
+        {:resources resources
+         :courses   courses
+         :bookmarks bookmarks
+         :errors    (when-not (empty? errors) errors)})))
+
 
   (defmethod perform [:put :nothing] [_ _]
     (go {:error :no-payload}))

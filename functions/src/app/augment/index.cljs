@@ -7,7 +7,8 @@
             [cljs.core.async :as async])
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
-(def adapters {:db {:table-names {:bookmarks (.. js/process -env -bookmarksTable)}}})
+(def adapters {:db {:table-names {:bookmarks (.. js/process -env -bookmarksTable)
+                                  :courses   (.. js/process -env -coursesTable)}}})
 
 (defn augment [& args]
   (go

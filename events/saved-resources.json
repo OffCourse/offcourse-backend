@@ -1,49 +1,52 @@
 {
     "Records": [
         {
-            "eventID": "27f765f58bd4643a0dc06e9d3c420184",
-            "eventName": "INSERT",
+            "eventID": "d6aa77cee634b7c38e3cce2a5c1d7ae7",
+            "eventName": "MODIFY",
             "eventVersion": "1.1",
             "eventSource": "aws:dynamodb",
             "awsRegion": "us-east-1",
             "dynamodb": {
-                "ApproximateCreationDateTime": 1478731920,
+                "ApproximateCreationDateTime": 1480881720,
                 "Keys": {
                     "resource-url": {
-                        "S": "http://unacademic.io"
+                        "S": "http://takingnotenow.blogspot.be/2007/12/luhmanns-zettelkasten.html"
                     }
                 },
                 "NewImage": {
-                    "bookmark-url": {
-                        "S": "http://unacademic.io"
-                    },
                     "entities": {
                         "L": [
                             {
-                                "S": "University of Amsterdam"
+                                "S": "Luhmann"
                             },
                             {
-                                "S": "BA"
+                                "S": "Niklas Luhmann"
                             },
                             {
-                                "S": "Digital Humanities"
+                                "S": "AndrC) Kieserling"
                             },
                             {
-                                "S": "Humanities Coding the Humanities"
+                                "S": "Kleine Schriften"
                             },
                             {
-                                "S": "Bocoup"
+                                "S": "Habermas"
                             },
                             {
-                                "S": "Coding the Humanities"
+                                "S": "UniversitC$t"
+                            },
+                            {
+                                "S": "Dewey Decimal System"
+                            },
+                            {
+                                "S": "Verlag Cordula Haux"
                             }
                         ]
                     },
                     "resource-url": {
-                        "S": "http://unacademic.io"
+                        "S": "http://takingnotenow.blogspot.be/2007/12/luhmanns-zettelkasten.html"
                     },
                     "description": {
-                        "S": "Unacademic open sourcing education"
+                        "S": "Index cards played a large role in research during the last century -- the 20th century, that is. And there is still a great deal of interest in using index cards as a means for organizing one's daily life."
                     },
                     "language": {
                         "S": "English"
@@ -51,43 +54,49 @@
                     "resource-type": {
                         "S": "html"
                     },
+                    "title": {
+                        "S": "Luhmann's Zettelkasten"
+                    },
+                    "content": {
+                        "S": "<div>\n<p>Index cards played a large role in research during the last century -- the 20th century, that is. And there is still a great deal of interest in using index cards as a means for organizing one's daily life. See, for instance, <a href=\"http://wiki.43folders.com/index.php/Index_Cards\">Index Cards</a>, <a href=\"http://www.43folders.com/topics/index-cards\">More Index Cards</a>, <a href=\"http://www.flickr.com/photos/hawkexpress/sets/72157594200490122/\">Photos</a>, or any number of other sites that are fascinated by paper or \"analog devices,\" as they are sometimes referred to by geeks in this time when electronic devices take over more and more of our lives. But index cards clearly also were the model for important early programs intended for what is by some called with the unfortunate phrase \"personal knowledge management\" today. I mean such programs as NoteCard, HyperCard, and their successors, which began from the index- or note-card metaphor.</p>\n<p>One of the more interesting systems for keeping such index cards was developed by the German sociologist Niklas Luhmann (1927-1998). I have no great interest in his theory. I am fascinated by his method of keeping notes, and will therefore restrict my comments to this aspect of his work. But if you are interested, you can visit <a href=\"http://en.wikipedia.org/wiki/Niklas_Luhmann\">Niklas Luhmann</a> for a short introduction to his theory. Clearly, his index-card-system and his sociological theory are connected in interesting, intricate, and not easily understood ways, but I will forgo investigating these for now.</p>\n<p>One of the things that made his Zettelkasten or slip box (or note card file) so intriguing to the larger (German) public was a 1981 paper, entitled \"Kommunikation mit Zettelk&#228;sten. Ein Erfahrungsbericht\" (Communication with Index Card Systems. An Empirical Account. It appeared in Niklas Luhmann, Universit&#228;t als Milieu. Kleine Schriften. hrsg. von Andr&#233; Kieserling. Bielefeld: Verlag Cordula Haux, 1992.) Luhmann claimed that his file was something of a collaborator in his work, a largely independent partner in his research and writing. It might have started out as a mere apprentice when Luhmann was still studying himself (in 1951), but after thirty years of having been fed information by the human collaborator it had acquired the ability of surprising him again an again. Since the ability of genuinely surprising one another is an essential characteristic of genuine communication, he argued that there was actually communication going on between himself and his partner in theory.</p>\n<p>Luhmann also described his system as his secondary memory (Zweitged&#228;chtnis), alter ego, or his reading memory or (Leseged&#228;chtnis).</p>\n<p>Luhmann's notecard system is different from that of others because of the way he organized the information, intending it not just for the next paper or the next book, as most other researchers did, but for a life-time of working and publishing. He thus rejected the mere alphabetical organisation of the material just as much as the systematic arrangement in accordance with fixed categories, like that of the Dewey Decimal System, for instance. Instead, he opted for an approach that was \"thematically unlimited,\" or is limited only insofar as it limits itself.</p>\n<p>Instead, he opted for organisation by numbers. Every slip would receive a number, independently of the information on it, starting with 1, and potentially continuing to infinity. Since his slips were relatively small (slightly larger than 5 x 8 cards, or Din-A 6, to be precise), he often had to continue on other slips the information or train of thought started on one slip. In this way, he would end up with Numbers like 1/1 and 1/2 and 1/3 etc. He wrote these numbers in black ink at the top of the slip, so that they could easily be seen when a slip was removed and then put back in the file.</p>\n<p>Apart from such linear continuations of topics on different slips, Luhmann also introduced a notation for branchings of topics. Thus, when he felt that a certain term needed to be further discussed or the information about it needed to be supplemented, he would begin a new slip that addded a letter, like a, b, or c to the number. So, a branching from slip 1/6 could have branches like 1/6a or 1/6b, up to 1/6z. These branching connections were marked by red numbers within the text, close to the place that needed further explanation or information. Since any of these branches might require further continuations, he also had many slips of the form 1/6a1, 1/6a2, etc. And, of course, any of these continuations can be branched again, so he could end up with such a number as:</p>\n<p>21/3d26g53 for -- who else? -- Habermas.</p>\n<p>These internal branchings can continue ad infinitum -- at least potentially. This is one of the advantages of the system. But there are others: (i) Because the numbers given to the slips are fixed and never change. Any slip can refer to any other slip by simply writing the proper number on the slip; and, what is more important, the other slip could be found, as long as it was properly placed in the stack or file. (ii) This system makes internal growth of the Zettelkasten possible that is completely independent of any preconceived ordering scheme. In fact, it leads to a kind of emergent order that is independent of any preconception, and this is one of the things that makes surprise or serendipity. (iii) it makes possible a register of keywords that allow one to enter into the system at a certain point to pursue a certain strand of thought. (iv) it leads to meaningful clusters within the system. Areas on which one has worked a lot are much more spatially extended than those on which one has not worked. (v) There are no privileged places in the note-card system, every card is as important as every other card, and no hierarchy is super-imposed on the system. The significance of each card depends on its relation to other cards (or the relation of other cards to it). It is a network; it is not \"arboretic.\" Accordingly, it in some ways anticipates hypertext and the internet.</p>\n<p>Almost all of these advantages of Luhmann's numbering scheme are, of course, easily realizable in any database system that have fixed record system. And the branching ability is easily reproduced by wiki-technology. (For more on the relation of this approach and wiki, see \"Some Idiosyncratic Reflections on Note-Taking in General and ConnectedText in Particular\" or <a href=\"http://www.connectedtext.com/manfred.html\">Idiosyncratic Reflections on Note-Taking</a>).</p>\n<p>If you would like to see a video of Luhmann, explaining the intricacies of his system, go to <a href=\"http://www.youtube.com/watch?v=tu3t_zzHJJs\">Luhmann on Zettelkasten</a></p>\n</div>"
+                    },
                     "tags": {
                         "L": [
                             {
-                                "S": "learner"
+                                "S": "luhmann"
                             },
                             {
-                                "S": "unacademic"
+                                "S": "slip"
                             },
                             {
-                                "S": "educational"
+                                "S": "cards"
                             },
                             {
-                                "S": "offcourse"
+                                "S": "system"
                             },
                             {
-                                "S": "piep"
+                                "S": "branching"
                             },
                             {
-                                "S": "humanities"
+                                "S": "index"
                             },
                             {
-                                "S": "coding"
+                                "S": "zettelkasten"
                             },
                             {
-                                "S": "source"
+                                "S": "numbering"
                             },
                             {
-                                "S": "teachers"
+                                "S": "niklas"
                             },
                             {
-                                "S": "learning"
+                                "S": "theory"
                             }
                         ]
                     }
                 },
-                "SequenceNumber": "38082800000000002114722953",
-                "SizeBytes": 388,
+                "SequenceNumber": "156548600000000015695578141",
+                "SizeBytes": 7484,
                 "StreamViewType": "NEW_IMAGE"
             },
             "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/resources-dev/stream/2016-11-01T20:58:43.405"
