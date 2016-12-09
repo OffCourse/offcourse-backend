@@ -5,7 +5,7 @@
 
 (defn augment-checkpoint [{:keys [resource-url] :as checkpoint} tags url]
   (if (= resource-url url)
-    (assoc checkpoint :tags tags)
+    (assoc checkpoint :tags (take 3 tags))
     checkpoint))
 
 (defn augment-checkpoints [course tags-data]

@@ -9,6 +9,7 @@
   (:require-macros [cljs.core.async.macros :refer [go]]))
 
 (def adapters {:db {:table-names {:bookmarks (.. js/process -env -bookmarksTable)
+                                  :resources (.. js/process -env -resourcesTable)
                                   :courses   (.. js/process -env -coursesTable)}}})
 
 (defn augment [& args]

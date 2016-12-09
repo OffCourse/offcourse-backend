@@ -48,7 +48,13 @@ functions:
     handler: functions/index.augment
     environment:
       bookmarksTable: "bookmarks-${opt:stage}"
+      resourcesTable: "resources-${opt:stage}"
       coursesTable: "courses-${opt:stage}"
+    events:
+      - stream:
+          arn: ${self:custom.dynamodbBase}/resources-${opt:stage}/stream/2016-11-01T20:58:43.405
+      - stream:
+          arn: ${self:custom.dynamodbBase}/bookmarks-${opt:stage}/stream/2016-11-01T23:45:45.927
 
   query:
     handler: functions/index.query

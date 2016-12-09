@@ -15,6 +15,18 @@
       {:course-id (str repo "::" curator "::" course-id)
        :revision (int revision)}))
 
+  (defmethod fetch :resources [{:keys [db]} bookmarks]
+    (go
+      (let [courses-query   (map to-course-query bookmarks)
+            courses-res     (async/<! (qa/fetch db courses-query))
+            courses         (:found courses-res)
+            resources-res   (async/<! (qa/fetch db bookmarks))
+            resources       (:found resources-res)
+            errors          (mapcat :errors [courses-res resources-res])]
+        {:found {:resources resources
+                 :courses   courses}
+         :errors    (when-not (empty? errors) errors)})))
+
   (defmethod fetch :bookmarks [{:keys [db]} resources]
     (go
       (let [bookmarks-res   (async/<! (qa/fetch db resources))

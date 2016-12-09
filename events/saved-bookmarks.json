@@ -1,0 +1,364 @@
+{
+    "Records": [
+        {
+            "eventID": "3ff3074de6e6f0e6694307e8e935fdb8",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://rogerdudler.github.io/git-guide/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::4"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "http://rogerdudler.github.io/git-guide/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::4"
+                    },
+                    "timestamp": {
+                        "N": "1481280057747"
+                    }
+                },
+                "SequenceNumber": "177895100000000003385485335",
+                "SizeBytes": 222,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "aff80d6adcb71f5fc750285416509765",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "https://www.codecademy.com/en/courses/learn-git"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::3"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "https://www.codecademy.com/en/courses/learn-git"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::3"
+                    },
+                    "timestamp": {
+                        "N": "1481280057746"
+                    }
+                },
+                "SequenceNumber": "177895200000000003385485351",
+                "SizeBytes": 238,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "d361463dbbb195994842b0d581aa2f61",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "https://backlogtool.com/git-guide/en/intro/intro1_1.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::1"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "https://backlogtool.com/git-guide/en/intro/intro1_1.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::1"
+                    },
+                    "timestamp": {
+                        "N": "1481280057744"
+                    }
+                },
+                "SequenceNumber": "177895300000000003385485352",
+                "SizeBytes": 256,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "278fad5c9c18999c17e0cfa2934af28f",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "https://www.atlassian.com/git/tutorials/what-is-version-control"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::0"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "https://www.atlassian.com/git/tutorials/what-is-version-control"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::0"
+                    },
+                    "timestamp": {
+                        "N": "1481280057744"
+                    }
+                },
+                "SequenceNumber": "177895400000000003385485353",
+                "SizeBytes": 270,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "5fa82fd48ee8c02231f9f197e7c9b072",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "https://www.codefellows.org/blog/git-and-github-what-s-the-difference/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::2"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "https://www.codefellows.org/blog/git-and-github-what-s-the-difference/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-4966020065::1::2"
+                    },
+                    "timestamp": {
+                        "N": "1481280057745"
+                    }
+                },
+                "SequenceNumber": "177895500000000003385485355",
+                "SizeBytes": 284,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "bf36644b91e31a86ec6236dfc9e465e3",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://computationaltales.blogspot.be/2011/08/fun-with-boolean-statements.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::2"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "http://computationaltales.blogspot.be/2011/08/fun-with-boolean-statements.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::2"
+                    },
+                    "timestamp": {
+                        "N": "1481280102029"
+                    }
+                },
+                "SequenceNumber": "177895600000000003385513478",
+                "SizeBytes": 300,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "d53520845d6d03e28a1a179400f2f679",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://javascript-roadtrip.codeschool.com/levels/1/challenges/1"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::1"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "http://javascript-roadtrip.codeschool.com/levels/1/challenges/1"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::1"
+                    },
+                    "timestamp": {
+                        "N": "1481280102029"
+                    }
+                },
+                "SequenceNumber": "177895700000000003385513479",
+                "SizeBytes": 270,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "005e36af6bcfaebba5fac4eb0cad452f",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://www.masswerk.at/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::3"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "http://www.masswerk.at/"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::3"
+                    },
+                    "timestamp": {
+                        "N": "1481280102029"
+                    }
+                },
+                "SequenceNumber": "177895800000000003385513480",
+                "SizeBytes": 190,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "e03fc26c1ca58a4cb262eec0d8e097bc",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "https://jenniferdewalt.com/party_time.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::4"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "https://jenniferdewalt.com/party_time.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::4"
+                    },
+                    "timestamp": {
+                        "N": "1481280102030"
+                    }
+                },
+                "SequenceNumber": "177895900000000003385513481",
+                "SizeBytes": 228,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        },
+        {
+            "eventID": "d35f078848929d08616a80b0f661c241",
+            "eventName": "MODIFY",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "us-east-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1481280060,
+                "Keys": {
+                    "resource-url": {
+                        "S": "http://eloquentjavascript.net/01_values.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::0"
+                    }
+                },
+                "NewImage": {
+                    "curator": {
+                        "S": "r2j2"
+                    },
+                    "resource-url": {
+                        "S": "http://eloquentjavascript.net/01_values.html"
+                    },
+                    "offcourse-id": {
+                        "S": "offcourse::r2j2::-1108454255::2::0"
+                    },
+                    "timestamp": {
+                        "N": "1481280102029"
+                    }
+                },
+                "SequenceNumber": "177896000000000003385513482",
+                "SizeBytes": 232,
+                "StreamViewType": "NEW_IMAGE"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:us-east-1:774182433398:table/bookmarks-dev/stream/2016-11-01T23:45:45.927"
+        }
+    ]
+}
