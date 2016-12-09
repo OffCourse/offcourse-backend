@@ -47,6 +47,7 @@ functions:
   augment:
     handler: functions/index.augment
     environment:
+      coursesStream: "courses-${opt:stage}"
       bookmarksTable: "bookmarks-${opt:stage}"
       resourcesTable: "resources-${opt:stage}"
       coursesTable: "courses-${opt:stage}"
