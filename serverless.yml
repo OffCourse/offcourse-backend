@@ -47,15 +47,13 @@ functions:
   augment:
     handler: functions/index.augment
     environment:
-      coursesStream: "courses-${opt:stage}"
+      coursesStream:  "courses-${opt:stage}"
       bookmarksTable: "bookmarks-${opt:stage}"
       resourcesTable: "resources-${opt:stage}"
-      coursesTable: "courses-${opt:stage}"
+      coursesTable:   "courses-${opt:stage}"
     events:
       - stream:
           arn: ${self:custom.dynamodbBase}/resources-${opt:stage}/stream/2016-11-01T20:58:43.405
-      - stream:
-          arn: ${self:custom.dynamodbBase}/bookmarks-${opt:stage}/stream/2016-11-01T23:45:45.927
 
   query:
     handler: functions/index.query
@@ -131,12 +129,13 @@ functions:
 
   save:
     handler: functions/index.save
+    timeout: 20
     environment:
       identitiesTable: "identities-${opt:stage}"
-      coursesTable: "courses-${opt:stage}"
-      resourcesTable: "resources-${opt:stage}"
-      profilesTable: "profiles-${opt:stage}"
-      bookmarksTable: "bookmarks-${opt:stage}"
+      coursesTable:    "courses-${opt:stage}"
+      resourcesTable:  "resources-${opt:stage}"
+      profilesTable:   "profiles-${opt:stage}"
+      bookmarksTable:  "bookmarks-${opt:stage}"
     events:
       - stream: 
           arn: ${self:custom.kinesisBase}/profiles-${opt:stage}
