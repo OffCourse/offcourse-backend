@@ -3,13 +3,12 @@ version: 0.1
 phases:
   install:
     commands:
-      - cd functions
-      - npm install
+      - cd functions && npm install
   build:
     commands:
       - echo Build started on `date`
-      - boot build
+      - cd functions && boot build
 artifacts:
   files:
-    - target/main.js
-    - index.js
+    - functions/target/main.js
+    - functions/index.js
