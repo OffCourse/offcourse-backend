@@ -11,6 +11,7 @@ ResourcesBucketArn:
   Value:
     Fn::Join: [":", ["arn","aws","s3","", "" ,{"Ref" : "ResourcesBucket"}]]
 
+
 AssetsBucket:
   Type: "AWS::S3::Bucket"
   Properties: 
