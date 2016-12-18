@@ -29,6 +29,8 @@ custom:
   envVars: ${file(./envvars.yml):EnvVars}
 
 functions:
+  debug:
+    handler: functions/index.debug
   command:
     handler: functions/index.command
     environment:
