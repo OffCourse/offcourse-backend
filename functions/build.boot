@@ -6,7 +6,7 @@
                   [pandeiro/boot-http          "0.7.3" :scope "test"]
                   [crisptrutski/boot-cljs-test "0.3.0-SNAPSHOT" :scope "test"]
                   [boot-codox                  "0.10.0" :scope "test"]
-                  [org.clojure/clojure         "1.9.0-alpha12"]
+                  [org.clojure/clojure         "1.9.0-alpha14"]
                   [org.clojure/core.async      "0.2.391"]
                   [org.clojure/test.check      "0.9.0"]
                   [org.clojure/clojurescript   "1.9.229"]
