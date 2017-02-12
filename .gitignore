@@ -1,5 +1,6 @@
 **/target/
 **/.nrepl-port
+**/.nrepl-history
 /out
 /.serverless
 **/node_modules
